@@ -24,6 +24,7 @@ body {
 
 body main {
   background-image: url("assets/background.svg");
+
   width: 375px;
   height: 812px;
   border-radius: 4px;
