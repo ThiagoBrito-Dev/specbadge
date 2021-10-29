@@ -1,5 +1,5 @@
 const socialMediaLinks = {
-  github: "thiagobrito-dev",
+  github: "trybrito",
   youtube: "rocketseat",
   instagram: "rocketseat_oficial",
   facebook: "rocketseat",
