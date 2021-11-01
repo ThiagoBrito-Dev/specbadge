@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["./src/**/*.html"],
+  purge: ["./**/*.html"],
   darkMode: false,
   theme: {
     fontFamily: {
@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "badge-surface": "url(../../assets/background.svg)",
+        "badge-surface": "url(../assets/background.svg)",
       },
       spacing: {
         46: "11.515rem",
