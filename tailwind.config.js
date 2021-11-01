@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "badge-surface": "url(../assets/background.svg)",
+        "badge-surface": "url(../../assets/background.svg)",
       },
       spacing: {
         46: "11.515rem",
