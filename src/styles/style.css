@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .page {
+    @apply grid place-items-center min-h-screen font-primary text-primary antialiased bg-body;
+  }
+
+  .badge {
+    @apply w-94 h-203 shadow bg-badge-surface bg-cover;
+  }
+
+  .badge-container {
+    @apply max-w-xs m-auto text-center;
+  }
+
+  .avatar {
+    @apply relative w-40 mt-46 mx-auto;
+  }
+
+  .avatar-stamp {
+    @apply absolute -top-3.75 left-0 z-10;
+  }
+
+  .avatar-image {
+    @apply w-40 h-46 object-cover;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+
+  .user-name {
+    @apply text-2xl mt-6 mb-1;
+  }
+
+  .profile-link {
+    @apply flex items-center gap-2 w-min m-auto text-secondary no-underline;
+  }
+
+  .social-links {
+    @apply flex justify-center gap-2 list-none;
+  }
+}
