@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
-    <title>Thiago Brito | SpecBadge - DoWhile 2021</title>
+    <!-- <title>Thiago Brito | SpecBadge - DoWhile 2021</title> -->
+    <title>Home | SpecBadge</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,53 +17,62 @@
     />
 
     <link rel="stylesheet" href="./src/styles/tailwind.css" />
-    <link rel="stylesheet" href="./src/styles/style.css" />
+    <link rel="stylesheet" href="./src/styles/global.css" />
   </head>
-  <body class="page">
+  <body class="home-page">
     <main class="badge">
-      <header class="badge-band"></header>
-      <section class="badge-content">
+      <header class="badge-header">
+        <div class="badge-band"></div>
+        <a class="btn-link" href="./src/login.html">
+          <button class="btn-login-redirect" type="button">Entrar</button>
+        </a>
+      </header>
+      <section class="badge-body">
         <header class="avatar">
           <span class="avatar-stamp">
-            <img src="./assets/rocket-stamp.svg" alt="Selo da Rocketseat" />
+            <!-- <img src="./assets/rocket-stamp.svg" alt="Selo da Rocketseat" /> -->
           </span>
-          <img class="avatar-image" src="" id="userImage" alt="" />
+          <img
+            class="avatar-image"
+            src="http://placehold.it/160x184"
+            id="userImage"
+            alt=""
+          />
         </header>
         <section>
-          <div>
-            <h1 id="userName" class="user-name"></h1>
+          <div class="identification">
+            <h1 id="userName" class="user-name">Seu nome</h1>
             <a
-              href=""
+              href="#"
               id="profileLink"
               class="profile-link"
-              target="_blank"
               policy="noreferrer noopener"
             >
               <img src="./assets/github.svg" alt="Ícone do GitHub" />
-              <span id="gitHubUser"></span>
+              <span id="gitHubUser" class="whitespace-nowrap">usuário</span>
             </a>
           </div>
-          <p class="mt-8" id="userBiography"></p>
+          <p class="mt-8" id="userBiography">Descrição do GitHub</p>
         </section>
         <footer class="mt-16 sm:mt-10">
           <ul id="socialLinks" class="social-links">
             <li class="youtube">
-              <a href="" target="_blank" policy="noreferrer noopener">
+              <a href="#" policy="noreferrer noopener">
                 <img src="./assets/youtube.svg" alt="Ícone do YouTube" />
               </a>
             </li>
             <li class="instagram">
-              <a href="" target="_blank" policy="noreferrer noopener">
+              <a href="#" policy="noreferrer noopener">
                 <img src="./assets/instagram.svg" alt="Ícone do Instagram" />
               </a>
             </li>
             <li class="facebook">
-              <a href="" target="_blank" policy="noreferrer noopener">
+              <a href="#" policy="noreferrer noopener">
                 <img src="./assets/facebook.svg" alt="Ícone do Facebook" />
               </a>
             </li>
             <li class="twitter">
-              <a href="" target="_blank" policy="noreferrer noopener">
+              <a href="#" policy="noreferrer noopener">
                 <img src="./assets/twitter.svg" alt="Ícone do Twitter" />
               </a>
             </li>
@@ -70,6 +81,6 @@
       </section>
     </main>
 
-    <script src="./src/script.js"></script>
+    <script src="./src/scripts/home.js"></script>
   </body>
 </html>

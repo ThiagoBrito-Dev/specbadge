@@ -31,5 +31,5 @@ function getUserGitHubProfileInfo() {
     });
 }
 
-changeSocialMediaLinks();
-getUserGitHubProfileInfo();
+// changeSocialMediaLinks();
+// getUserGitHubProfileInfo();

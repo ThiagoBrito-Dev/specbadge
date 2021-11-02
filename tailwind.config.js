@@ -6,16 +6,20 @@ module.exports = {
       primary: ["Roboto", "sans-serif"],
     },
     colors: {
-      body: "#121214",
+      body: "#121216",
+      button: "#272729",
       primary: "#e1e1e6",
       secondary: "#c4c4cc",
+      tertiary: "#202024",
+      transparent: "transparent",
     },
     boxShadow: {
-      DEFAULT: "0 0 15px 2.5px #1b1b1d",
+      inner: "inset 0 0 0 2px #272729",
       none: "0 0 0 0",
     },
     maxWidth: {
       xs: "15.625rem",
+      md: "28rem",
     },
     extend: {
       backgroundImage: {
@@ -26,7 +30,8 @@ module.exports = {
       },
       spacing: {
         15: "3.75rem",
-        17.25: "4.3125rem",
+        17.5: "4.375rem",
+        32.25: "8.0625rem",
         "-35": "-8.75rem",
         35: "8.75rem",
         41: "10.25rem",
@@ -42,7 +47,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      boxShadow: ["hover"],
+      borderStyle: ["hover"],
+    },
   },
   plugins: [],
 };
