@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include("parts/head", { title: "Login", hasScript: false }) %>
+
+  <body class="page">
+    <main class="login-card">
+      <h1 class="card-title">Login</h1>
+      <p class="description">
+        Clique no botão abaixo para fazer login com a sua conta do GitHub e
+        ganhar acesso à personalização do seu crachá de espectador.
+      </p>
+      <a
+        href="https://github.com/login/oauth/authorize?client_id=<%= clientId %>"
+        class="btn-login"
+      >
+        <img class="btn-icon" src="/images/github.svg" alt="Ícone do GitHub" />
+        <span>Entrar</span>
+      </a>
+    </main>
+  </body>
+</html>

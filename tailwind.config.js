@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["./**/*.html"],
+  purge: ["./src/views/**/*.ejs"],
   darkMode: false,
   theme: {
     fontFamily: {
@@ -23,12 +23,13 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "badge-surface": "url(../../assets/badge.svg)",
-        "badge-band": "url(../../assets/band.svg)",
-        "desktop-body": "url(../../assets/body-desktop.svg)",
-        "desktop-badge-surface": "url(../../assets/badge-desktop.svg)",
+        "badge-surface": "url(/images/badge.svg)",
+        "badge-band": "url(/images/band.svg)",
+        "desktop-body": "url(/images/body-desktop.svg)",
+        "desktop-badge-surface": "url(/images/badge-desktop.svg)",
       },
       spacing: {
+        7.5: "1.875rem",
         15: "3.75rem",
         17.5: "4.375rem",
         32.25: "8.0625rem",

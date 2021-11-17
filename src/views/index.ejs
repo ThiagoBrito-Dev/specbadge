@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include("parts/head", { title: "Home", hasScript: false }) %>
+
+  <body class="page has-badge">
+    <main class="badge">
+      <header class="badge-header">
+        <div class="badge-band"></div>
+        <a class="btn-login-redirect" href="/login">Entrar</a>
+      </header>
+      <section class="badge-body">
+        <header class="avatar">
+          <img
+            class="avatar-image"
+            src="https://via.placeholder.com/160x184/e1e1e6/202024"
+            alt="Sua foto de perfil"
+          />
+        </header>
+        <section>
+          <div class="identification">
+            <h1 class="user-name">Seu nome</h1>
+            <a href="#" class="profile-link">
+              <img src="/images/github.svg" alt="Ícone do GitHub" />
+              <span>usuário</span>
+            </a>
+          </div>
+          <p class="mt-8">Descrição do GitHub</p>
+        </section>
+        <footer class="mt-16 sm:mt-10">
+          <ul class="social-links-container">
+            <li>
+              <a href="#">
+                <img src="/images/youtube.svg" alt="Ícone do YouTube" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/images/instagram.svg" alt="Ícone do Instagram" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/images/facebook.svg" alt="Ícone do Facebook" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/images/twitter.svg" alt="Ícone do Twitter" />
+              </a>
+            </li>
+          </ul>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>

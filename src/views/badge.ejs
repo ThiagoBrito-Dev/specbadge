@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include("parts/head", { title: data.name, hasScript: true, fileName:
+  "badge" }) %>
+
+  <body class="page has-badge">
+    <main class="badge">
+      <header class="badge-header">
+        <div class="badge-band"></div>
+        <button class="btn-share">
+          <img
+            class="share-image"
+            src="/images/share.svg"
+            alt="Compartilhar crachá"
+          />
+        </button>
+      </header>
+      <section class="badge-body">
+        <header class="avatar">
+          <span class="avatar-stamp">
+            <!-- <img src="/images/rocket-stamp.svg" alt="Selo da Rocketseat" /> -->
+          </span>
+          <img
+            class="avatar-image"
+            src="<%= data.avatar_url %>"
+            alt="<%= data.name %>"
+            id="userImage"
+          />
+        </header>
+        <section>
+          <div class="identification">
+            <h1 id="userName" class="user-name"><%= data.name %></h1>
+            <a
+              href="<%= data.html_url %>"
+              target="_blank"
+              policy="noreferrer noopener"
+              id="profileLink"
+              class="profile-link"
+            >
+              <img src="/images/github.svg" alt="Ícone do GitHub" />
+              <span id="gitHubUser"><%= data.login %></span>
+            </a>
+          </div>
+          <p class="mt-8" id="userBiography"><%= data.bio %></p>
+        </section>
+        <footer id="configContainer" class="config-container">
+          <div class="youtube">
+            <a href="#" policy="noreferrer noopener">
+              <img src="/images/youtube.svg" alt="Ícone do YouTube" />
+            </a>
+          </div>
+          <div class="instagram">
+            <a href="#" policy="noreferrer noopener">
+              <img src="/images/instagram.svg" alt="Ícone do Instagram" />
+            </a>
+          </div>
+          <div class="facebook">
+            <a href="#" policy="noreferrer noopener">
+              <img src="/images/facebook.svg" alt="Ícone do Facebook" />
+            </a>
+          </div>
+          <div class="twitter">
+            <a href="#" policy="noreferrer noopener">
+              <img src="/images/twitter.svg" alt="Ícone do Twitter" />
+            </a>
+          </div>
+          <button type="button" id="editBadge">
+            <img src="/images/edit.svg" alt="Ícone de edição" />
+          </button>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
