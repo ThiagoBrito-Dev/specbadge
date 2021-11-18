@@ -11,15 +11,10 @@ module.exports = {
       primary: "#e1e1e6",
       secondary: "#c4c4cc",
       tertiary: "#202024",
+      quaternary: "#454545",
+      overlay: "rgba(0, 0, 0, 0.5)",
+      separator: "rgba(0, 0, 0, 0.1)",
       transparent: "transparent",
-    },
-    boxShadow: {
-      inner: "inset 0 0 0 2px #272729",
-      none: "0 0 0 0",
-    },
-    maxWidth: {
-      xs: "15.625rem",
-      md: "28rem",
     },
     extend: {
       backgroundImage: {
@@ -28,13 +23,27 @@ module.exports = {
         "desktop-body": "url(/images/body-desktop.svg)",
         "desktop-badge-surface": "url(/images/badge-desktop.svg)",
       },
+      boxShadow: {
+        inner: "inset 0 0 0 2px #272729",
+      },
+      maxWidth: {
+        xs: "15.625rem",
+      },
+      maxHeight: {
+        99: "24.75rem",
+        111: "27.75rem",
+        200: "50rem",
+      },
       spacing: {
+        hpx: "0.5px",
+        4.5: "1.125rem",
         7.5: "1.875rem",
         15: "3.75rem",
         17.5: "4.375rem",
         32.25: "8.0625rem",
         "-35": "-8.75rem",
         35: "8.75rem",
+        35.75: "8.9375rem",
         41: "10.25rem",
         46: "11.515rem",
         89.5: "22.375rem",
@@ -45,12 +54,28 @@ module.exports = {
       inset: {
         "-3.75": "-0.9375rem",
       },
+      keyframes: {
+        "finite-bounce": {
+          "0%, 50%, 100%": { transform: "translateY(0)" },
+          "25%": { transform: "translateY(-25%)" },
+          "75%": { transform: "translateY(-20%)" },
+        },
+        "swipe-down": {
+          from: { transform: "translateY(-20%)" },
+          to: { transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "finite-bounce": "finite-bounce 1s ease-out",
+        "swipe-down": "swipe-down 0.75s ease-out",
+      },
     },
   },
   variants: {
     extend: {
       boxShadow: ["hover"],
       borderStyle: ["hover"],
+      animation: ["hover"],
     },
   },
   plugins: [],

@@ -7,9 +7,16 @@
     <main class="badge">
       <header class="badge-header">
         <div class="badge-band"></div>
+        <button class="btn-share">
+          <img
+            class="share-image"
+            src="/images/share.svg"
+            alt="Compartilhar crachá"
+          />
+        </button>
       </header>
       <section class="badge-body">
-        <header class="avatar">
+        <header class="avatar mt-35.75 sm:mt-17.5">
           <span class="avatar-stamp">
             <!-- <img src="/images/rocket-stamp.svg" alt="Selo da Rocketseat" /> -->
           </span>
@@ -36,29 +43,105 @@
           </div>
           <p class="mt-8" id="userBiography"><%= data.bio %></p>
         </section>
-        <footer id="configContainer" class="config-container">
-          <div class="youtube">
+        <footer id="configWrapper" class="config-wrapper">
+          <div class="youtube social-link-container">
             <a href="#" policy="noreferrer noopener">
               <img src="/images/youtube.svg" alt="Ícone do YouTube" />
             </a>
           </div>
-          <div class="instagram">
+          <div class="instagram social-link-container">
             <a href="#" policy="noreferrer noopener">
               <img src="/images/instagram.svg" alt="Ícone do Instagram" />
             </a>
           </div>
-          <div class="facebook">
+          <div class="facebook social-link-container">
             <a href="#" policy="noreferrer noopener">
               <img src="/images/facebook.svg" alt="Ícone do Facebook" />
             </a>
           </div>
-          <div class="twitter">
+          <div class="twitter social-link-container">
             <a href="#" policy="noreferrer noopener">
               <img src="/images/twitter.svg" alt="Ícone do Twitter" />
             </a>
           </div>
+          <button type="button" id="editBadge" class="social-link-container">
+            <img src="/images/edit.svg" alt="Ícone de edição" />
+          </button>
         </footer>
       </section>
     </main>
   </body>
+
+  <div class="modal-overlay">
+    <div class="modal active">
+      <form action="/badge" method="POST" id="form-edit">
+        <fieldset>
+          <legend class="fieldset-title">Editar Dados do Crachá</legend>
+
+          <div class="separator"></div>
+
+          <div class="input-wrapper">
+            <label for="eventName" class="st-label"
+              >Você está participando de qual evento atualmente?</label
+            >
+            <input
+              type="text"
+              id="eventName"
+              class="input"
+              placeholder="Nome do evento"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="youtubeLink" class="label"
+              >Link para perfil do YouTube</label
+            >
+            <input
+              type="text"
+              id="youtubeLink"
+              class="input"
+              placeholder="youtube.com/channel/"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="instagramLink" class="label"
+              >Link para conta do Instagram</label
+            >
+            <input
+              type="text"
+              id="instagramLink"
+              class="input"
+              placeholder="instagram.com/"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="facebookLink" class="label"
+              >Link para conta do Facebook</label
+            >
+            <input
+              type="text"
+              id="facebookLink"
+              class="input"
+              placeholder="facebook.com/"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="twitterLink" class="label"
+              >Link para perfil do Twitter</label
+            >
+            <input
+              type="text"
+              id="twitterLink"
+              class="input"
+              placeholder="twitter.com/"
+            />
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn-cancel">Cancelar</button>
+            <button type="button" class="btn-save">Salvar</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
 </html>

@@ -24,18 +24,22 @@
     sm:justify-start;
   }
 
-  .btn {
-    @apply font-medium
-    text-primary 
-    rounded;
-  }
-
   .badge-top-item {
     @apply sm:absolute 
     sm:top-0 
     sm:right-0
     mr-3 
     mt-3;
+  }
+
+  .btn {
+    @apply font-medium
+    text-primary 
+    rounded;
+  }
+
+  .social-link-container {
+    @apply hover:animate-finite-bounce;
   }
 
   /* HOME PAGE */
@@ -91,7 +95,8 @@
     w-40 
     mt-32.25 
     sm:mt-17.5
-    mx-auto;
+    mx-auto
+    animate-swipe-down;
   }
 
   .avatar-image {
@@ -121,7 +126,7 @@
     no-underline;
   }
 
-  .social-links-container {
+  .social-links-wrapper {
     @apply flex 
     justify-center 
     gap-2 
@@ -172,8 +177,8 @@
   /* -- END -- 
   
   * BADGE PAGE */
-  .config-container {
-    @apply social-links-container
+  .config-wrapper {
+    @apply social-links-wrapper
     mt-16 
     sm:mt-10;
   }
@@ -183,6 +188,104 @@
     -top-3.75 
     left-0 
     z-10;
+  }
+
+  .btn-share {
+    @apply badge-top-item
+    transform
+    hover:scale-110
+    duration-500;
+  }
+
+  .share-image {
+    @apply w-7.5
+    h-7.5;
+  }
+
+  .modal-overlay {
+    @apply fixed
+    top-0
+    left-0
+    flex
+    justify-center
+    items-center
+    w-full
+    h-full
+    bg-overlay;
+  }
+
+  .modal.active {
+    @apply block
+    bg-primary
+    rounded
+    max-h-99 
+    sm:max-h-111
+    xl:max-h-full
+    px-2.5
+    py-4
+    m-4
+    overflow-y-auto;
+  }
+
+  .fieldset-title {
+    @apply card-title
+    text-2xl
+    text-button;
+  }
+
+  .separator {
+    @apply w-full
+    h-hpx 
+    bg-separator
+    mt-2
+    mb-3;
+  }
+
+  .input-wrapper {
+    @apply flex 
+    flex-col
+    text-button
+    px-2;
+  }
+
+  .input {
+    @apply h-10 
+    rounded 
+    pl-2;
+  }
+
+  .st-label {
+    @apply text-quaternary 
+    mb-1;
+  }
+
+  .label {
+    @apply text-quaternary
+    mt-3 
+    mb-1;
+  }
+
+  .actions {
+    @apply flex
+    gap-2
+    px-2
+    mt-4.5;
+  }
+
+  .btn-cancel {
+    @apply w-2/5
+    px-4 
+    py-2 
+    rounded-md 
+    bg-button;
+  }
+
+  .btn-save {
+    @apply w-3/5
+    px-4 
+    py-2 
+    rounded-md 
+    bg-button;
   }
   /* --- END --- */
 }
