@@ -44,27 +44,32 @@
           <p class="mt-8" id="userBiography"><%= data.bio %></p>
         </section>
         <footer id="configWrapper" class="config-wrapper">
-          <div class="youtube social-link-container">
+          <div class="social-link-container" data-media="youtube">
             <a href="#" policy="noreferrer noopener">
               <img src="/images/youtube.svg" alt="Ícone do YouTube" />
             </a>
           </div>
-          <div class="instagram social-link-container">
+          <div class="social-link-container" data-media="instagram">
             <a href="#" policy="noreferrer noopener">
               <img src="/images/instagram.svg" alt="Ícone do Instagram" />
             </a>
           </div>
-          <div class="facebook social-link-container">
+          <div class="social-link-container" data-media="facebook">
             <a href="#" policy="noreferrer noopener">
               <img src="/images/facebook.svg" alt="Ícone do Facebook" />
             </a>
           </div>
-          <div class="twitter social-link-container">
+          <div class="social-link-container" data-media="twitter">
             <a href="#" policy="noreferrer noopener">
               <img src="/images/twitter.svg" alt="Ícone do Twitter" />
             </a>
           </div>
-          <button type="button" id="editBadge" class="social-link-container">
+          <button
+            type="button"
+            id="editBadge"
+            class="social-link-container"
+            data-media=""
+          >
             <img src="/images/edit.svg" alt="Ícone de edição" />
           </button>
         </footer>
@@ -72,11 +77,11 @@
     </main>
   </body>
 
-  <div class="modal-overlay">
-    <div class="modal active">
-      <form action="/badge" method="POST" id="form-edit">
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal">
+      <form id="formEdit">
         <fieldset>
-          <legend class="fieldset-title">Editar Dados do Crachá</legend>
+          <legend class="fieldset-title">Dados do Crachá</legend>
 
           <div class="separator"></div>
 
@@ -93,18 +98,18 @@
           </div>
           <div class="input-wrapper">
             <label for="youtubeLink" class="label"
-              >Link para perfil do YouTube</label
+              >Qual é o nome do seu canal do YouTube?</label
             >
             <input
               type="text"
               id="youtubeLink"
               class="input"
-              placeholder="youtube.com/channel/"
+              placeholder="youtube.com/"
             />
           </div>
           <div class="input-wrapper">
             <label for="instagramLink" class="label"
-              >Link para conta do Instagram</label
+              >Qual é o seu usuário do Instagram?</label
             >
             <input
               type="text"
@@ -115,7 +120,7 @@
           </div>
           <div class="input-wrapper">
             <label for="facebookLink" class="label"
-              >Link para conta do Facebook</label
+              >Qual é o seu perfil do Facebook?</label
             >
             <input
               type="text"
@@ -126,7 +131,7 @@
           </div>
           <div class="input-wrapper">
             <label for="twitterLink" class="label"
-              >Link para perfil do Twitter</label
+              >Qual é o nome do seu usuário no Twitter?</label
             >
             <input
               type="text"
@@ -137,8 +142,12 @@
           </div>
 
           <div class="actions">
-            <button type="button" class="btn-cancel">Cancelar</button>
-            <button type="button" class="btn-save">Salvar</button>
+            <button type="button" id="cancelButton" class="btn-cancel">
+              Cancelar
+            </button>
+            <button type="submit" id="saveButton" class="btn-save">
+              Salvar
+            </button>
           </div>
         </fieldset>
       </form>

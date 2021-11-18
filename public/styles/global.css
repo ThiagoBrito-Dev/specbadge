@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-button 
+    rounded-full;
+  }
+}
+
 @layer components {
   .page {
     @apply flex 
@@ -87,7 +102,8 @@
   .badge-body {
     @apply max-w-xs 
     m-auto 
-    text-center;
+    text-center
+    animate-swipe-down;
   }
 
   .avatar {
@@ -95,8 +111,7 @@
     w-40 
     mt-32.25 
     sm:mt-17.5
-    mx-auto
-    animate-swipe-down;
+    mx-auto;
   }
 
   .avatar-image {
@@ -140,7 +155,8 @@
     bg-primary 
     text-tertiary 
     rounded 
-    p-4;
+    p-4
+    animate-pop;
   }
 
   .card-title {
@@ -168,7 +184,7 @@
     py-4 
     bg-tertiary
     hover:bg-body
-    duration-200;
+    duration-300;
   }
 
   .btn-icon {
@@ -203,6 +219,10 @@
   }
 
   .modal-overlay {
+    @apply hidden;
+  }
+
+  .modal-overlay.active {
     @apply fixed
     top-0
     left-0
@@ -214,7 +234,7 @@
     bg-overlay;
   }
 
-  .modal.active {
+  .modal {
     @apply block
     bg-primary
     rounded
@@ -226,6 +246,11 @@
     m-4
     overflow-y-auto;
   }
+
+  /* .modal::-webkit-scrollbar {
+    @apply hidden 
+    sm:block;
+  } */
 
   .fieldset-title {
     @apply card-title
@@ -250,6 +275,7 @@
 
   .input {
     @apply h-10 
+    text-input 
     rounded 
     pl-2;
   }
@@ -272,20 +298,31 @@
     mt-4.5;
   }
 
-  .btn-cancel {
-    @apply w-2/5
-    px-4 
-    py-2 
+  .btn-action {
+    @apply text-button
+    font-semibold
     rounded-md 
-    bg-button;
+    duration-500 
+    px-4 
+    py-2.5 
+    transform 
+    hover:scale-105
+    filter
+    hover:brightness-95;
+  }
+
+  .btn-cancel {
+    @apply btn-action 
+    w-2/5 
+    bg-secondary;
   }
 
   .btn-save {
-    @apply w-3/5
-    px-4 
-    py-2 
-    rounded-md 
-    bg-button;
+    @apply btn-action 
+    w-3/5
+    bg-gradient-to-r 
+    from-pink-fade 
+    to-yellow-fade;
   }
   /* --- END --- */
 }

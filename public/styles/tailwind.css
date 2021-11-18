@@ -216,7 +216,8 @@ Correct the inability to style clickable types in iOS and Safari.
 */
 
 button,
-[type='button'] {
+[type='button'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
@@ -552,6 +553,10 @@ video {
   border-color: currentColor;
 }
 
+::-webkit-scrollbar {
+  width: 0.375rem;
+}
+
 .page {
   display: flex;
   min-height: 100vh;
@@ -707,6 +712,8 @@ video {
 .badge-body {
   margin: auto;
   max-width: 15.625rem;
+  -webkit-animation: swipe-down 0.65s ease-out;
+          animation: swipe-down 0.65s ease-out;
   text-align: center;
 }
 
@@ -716,8 +723,6 @@ video {
   margin-right: auto;
   margin-top: 8.0625rem;
   width: 10rem;
-  -webkit-animation: swipe-down 0.75s ease-out;
-          animation: swipe-down 0.75s ease-out;
 }
 
 @media (min-width: 640px) {
@@ -771,6 +776,8 @@ video {
 
 .login-card {
   max-width: 28rem;
+  -webkit-animation: pop 0.65s ease-in-out;
+          animation: pop 0.65s ease-in-out;
   border-radius: 0.25rem;
   --tw-bg-opacity: 1;
   background-color: rgba(225, 225, 230, var(--tw-bg-opacity));
@@ -820,7 +827,7 @@ video {
   padding-bottom: 1rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  transition-duration: 200ms;
+  transition-duration: 300ms;
 }
 
 .btn-icon {
@@ -895,18 +902,10 @@ video {
 }
 
 .modal-overlay {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
 }
 
-.modal.active {
+.modal {
   margin: 1rem;
   display: block;
   max-height: 24.75rem;
@@ -921,16 +920,21 @@ video {
 }
 
 @media (min-width: 640px) {
-  .modal.active {
+  .modal {
     max-height: 27.75rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .modal.active {
+  .modal {
     max-height: 100%;
   }
 }
+
+/* .modal::-webkit-scrollbar {
+    @apply hidden 
+    sm:block;
+  } */
 
 .fieldset-title {
   text-align: center;
@@ -964,6 +968,8 @@ video {
   height: 2.5rem;
   border-radius: 0.25rem;
   padding-left: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(85, 85, 89, var(--tw-text-opacity));
 }
 
 .st-label {
@@ -988,25 +994,101 @@ video {
 }
 
 .btn-cancel {
-  width: 40%;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.btn-cancel:hover {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+}
+
+.btn-cancel {
   border-radius: 0.375rem;
-  --tw-bg-opacity: 1;
-  background-color: rgba(39, 39, 41, var(--tw-bg-opacity));
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgba(39, 39, 41, var(--tw-text-opacity));
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.btn-cancel:hover {
+  --tw-brightness: brightness(.95);
+}
+
+.btn-cancel {
+  transition-duration: 500ms;
+  width: 40%;
+  --tw-bg-opacity: 1;
+  background-color: rgba(196, 196, 204, var(--tw-bg-opacity));
 }
 
 .btn-save {
-  width: 60%;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.btn-save:hover {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+}
+
+.btn-save {
   border-radius: 0.375rem;
-  --tw-bg-opacity: 1;
-  background-color: rgba(39, 39, 41, var(--tw-bg-opacity));
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgba(39, 39, 41, var(--tw-text-opacity));
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.btn-save:hover {
+  --tw-brightness: brightness(.95);
+}
+
+.btn-save {
+  transition-duration: 500ms;
+  width: 60%;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #fd2875;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(253, 40, 117, 0));
+  --tw-gradient-to: #f7b125;
 }
 
 /* --- END --- */
@@ -1127,7 +1209,7 @@ video {
 
 @-webkit-keyframes swipe-down {
   from {
-    transform: translateY(-20%);
+    transform: translateY(-9.5%);
   }
 
   to {
@@ -1137,11 +1219,43 @@ video {
 
 @keyframes swipe-down {
   from {
-    transform: translateY(-20%);
+    transform: translateY(-9.5%);
   }
 
   to {
     transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  60% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  60% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
