@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <%- include("parts/head", { title: "Home", hasScript: false }) %>
+  <%- include("parts/head", { pageName: "Home", hasEvent: false, hasScript:
+  false }) %>
 
   <body class="page has-badge">
     <main class="badge">
@@ -19,7 +20,7 @@
         <section>
           <div class="identification">
             <h1 class="user-name">Seu nome</h1>
-            <a href="#" class="profile-link">
+            <a href="#" target="_blank" class="profile-link">
               <img src="/images/github.svg" alt="Ícone do GitHub" />
               <span>usuário</span>
             </a>
@@ -29,22 +30,22 @@
         <footer class="mt-16 sm:mt-10">
           <ul class="social-links-wrapper">
             <li class="social-link-container">
-              <a href="#">
+              <a href="#" target="_blank">
                 <img src="/images/youtube.svg" alt="Ícone do YouTube" />
               </a>
             </li>
             <li class="social-link-container">
-              <a href="#">
+              <a href="#" target="_blank">
                 <img src="/images/instagram.svg" alt="Ícone do Instagram" />
               </a>
             </li>
             <li class="social-link-container">
-              <a href="#">
+              <a href="#" target="_blank">
                 <img src="/images/facebook.svg" alt="Ícone do Facebook" />
               </a>
             </li>
             <li class="social-link-container">
-              <a href="#">
+              <a href="#" target="_blank">
                 <img src="/images/twitter.svg" alt="Ícone do Twitter" />
               </a>
             </li>

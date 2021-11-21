@@ -7,5 +7,6 @@ const router = new express.Router();
 router.get("/", HomeController.show);
 router.get("/login", LoginController.show);
 router.get("/badge", BadgeController.show);
+router.post("/badge", BadgeController.save);
 
 module.exports = router;

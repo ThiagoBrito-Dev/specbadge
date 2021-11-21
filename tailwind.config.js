@@ -39,7 +39,7 @@ module.exports = {
       },
       spacing: {
         hpx: "0.5px",
-        4.5: "1.125rem",
+        4.75: "1.1875rem",
         7.5: "1.875rem",
         15: "3.75rem",
         17.5: "4.375rem",

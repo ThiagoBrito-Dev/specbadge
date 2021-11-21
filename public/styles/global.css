@@ -247,11 +247,6 @@
     overflow-y-auto;
   }
 
-  /* .modal::-webkit-scrollbar {
-    @apply hidden 
-    sm:block;
-  } */
-
   .fieldset-title {
     @apply card-title
     text-2xl
@@ -263,7 +258,7 @@
     h-hpx 
     bg-separator
     mt-2
-    mb-3;
+    mb-3.5;
   }
 
   .input-wrapper {
@@ -287,7 +282,7 @@
 
   .label {
     @apply text-quaternary
-    mt-3 
+    mt-3.5 
     mb-1;
   }
 
@@ -295,7 +290,7 @@
     @apply flex
     gap-2
     px-2
-    mt-4.5;
+    mt-4.75;
   }
 
   .btn-action {
