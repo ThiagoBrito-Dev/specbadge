@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <%- include("parts/head", { pageName: "Home", hasEvent: false, hasScript:
-  false }) %>
+  <% if (hasData) { %><%- include("parts/head", { pageName: data.name, hasEvent:
+  true, eventName: profile.event, hasScript: false }) %><% } else { %><%-
+  include("parts/head", { pageName: "Home", hasEvent: false, hasScript: false })
+  %><% } %>
 
   <body class="page has-badge">
     <main class="badge">
@@ -13,39 +15,67 @@
         <header class="avatar">
           <img
             class="avatar-image"
-            src="https://via.placeholder.com/160x184/e1e1e6/202024"
-            alt="Sua foto de perfil"
+            src="<% if (hasData) { %><%= data.avatar_url %><% } else { %>https://via.placeholder.com/160x184/e1e1e6/202024<% } %>"
+            alt="<% if (hasData) { %><%= data.name %><% } else { %>Sua foto de perfil<% } %>"
           />
         </header>
         <section>
           <div class="identification">
-            <h1 class="user-name">Seu nome</h1>
-            <a href="#" target="_blank" class="profile-link">
+            <h1 class="user-name">
+              <% if (hasData) { %><%= data.name %><% } else { %>Seu nome<% } %>
+            </h1>
+            <a
+              href="<% if (hasData) { %><%= data.html_url %><% } else { %>#<% } %>"
+              target="_blank"
+              policy="noreferrer noopener"
+              class="profile-link"
+            >
               <img src="/images/github.svg" alt="Ícone do GitHub" />
-              <span>usuário</span>
+              <span>
+                <% if (hasData) { %><%= data.login %><% } else { %>usuário<% }%>
+              </span>
             </a>
           </div>
-          <p class="mt-8">Descrição do GitHub</p>
+          <p class="mt-8">
+            <% if (hasData) { %><%= data.bio %><% } else { %>Descrição do
+            GitHub<% } %>
+          </p>
         </section>
         <footer class="mt-16 sm:mt-10">
           <ul class="social-links-wrapper">
             <li class="social-link-container">
-              <a href="#" target="_blank">
+              <a
+                href="<% if (hasData) { %>https://youtube.com/<%= profile.links.youtube %><% } else { %>#<% } %>"
+                target="_blank"
+                policy="noreferrer noopener"
+              >
                 <img src="/images/youtube.svg" alt="Ícone do YouTube" />
               </a>
             </li>
             <li class="social-link-container">
-              <a href="#" target="_blank">
+              <a
+                href="<% if (hasData) { %>https://instagram.com/<%= profile.links.instagram %>/<% } else { %>#<% } %>"
+                target="_blank"
+                policy="noreferrer noopener"
+              >
                 <img src="/images/instagram.svg" alt="Ícone do Instagram" />
               </a>
             </li>
             <li class="social-link-container">
-              <a href="#" target="_blank">
+              <a
+                href="<% if (hasData) { %>https://facebook.com/<%= profile.links.facebook %><% } else { %>#<% } %>"
+                target="_blank"
+                policy="noreferrer noopener"
+              >
                 <img src="/images/facebook.svg" alt="Ícone do Facebook" />
               </a>
             </li>
             <li class="social-link-container">
-              <a href="#" target="_blank">
+              <a
+                href="<% if (hasData) { %>https://twitter.com/<%= profile.links.twitter %><% } else { %>#<% } %>"
+                target="_blank"
+                policy="noreferrer noopener"
+              >
                 <img src="/images/twitter.svg" alt="Ícone do Twitter" />
               </a>
             </li>

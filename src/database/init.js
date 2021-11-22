@@ -11,8 +11,12 @@ const initializeDatabase = {
         validator: {
           $jsonSchema: {
             bsonType: "object",
-            required: ["user", "event", "links"],
+            required: ["github_id", "user", "event", "links"],
             properties: {
+              github_id: {
+                bsonType: "int",
+                description: "Must be an integer number and is required",
+              },
               user: {
                 bsonType: "string",
                 description: "Must be a string and is required",

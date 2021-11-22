@@ -29,17 +29,19 @@ module.exports = {
       boxShadow: {
         inner: "inset 0 0 0 2px #272729",
       },
+      minWidth: {
+        71: "17.75rem",
+        101.25: "25.3125rem",
+      },
       maxWidth: {
         xs: "15.625rem",
       },
       maxHeight: {
-        99: "24.75rem",
-        111: "27.75rem",
         200: "50rem",
       },
       spacing: {
         hpx: "0.5px",
-        4.75: "1.1875rem",
+        4.5: "1.125rem",
         7.5: "1.875rem",
         15: "3.75rem",
         17.5: "4.375rem",
@@ -86,6 +88,7 @@ module.exports = {
       borderStyle: ["hover"],
       animation: ["hover"],
       brightness: ["hover"],
+      scale: ["active"],
     },
   },
   plugins: [],

@@ -1,7 +1,7 @@
 const Client = require("../database/config");
 
 module.exports = {
-  async get(userName) {
+  async get(comparisonData, getByUserName = false) {
     let userProfile;
 
     try {
@@ -10,7 +10,12 @@ module.exports = {
 
       const database = Client.db("specbadge");
       const profiles = database.collection("profiles");
-      userProfile = await profiles.findOne({ user: userName });
+
+      if (getByUserName) {
+        userProfile = await profiles.findOne({ user: comparisonData });
+      } else {
+        userProfile = await profiles.findOne({ github_id: comparisonData });
+      }
     } catch (error) {
       console.log(
         `Unfortunately, the following error occurred during the connection: ${error.message}`
@@ -45,9 +50,10 @@ module.exports = {
       const database = Client.db("specbadge");
       const profiles = database.collection("profiles");
       await profiles.updateOne(
-        { user: data.user },
+        { github_id: data.github_id },
         {
           $set: {
+            user: data.user,
             event: data.event,
             "links.youtube": data.links.youtube,
             "links.instagram": data.links.instagram,

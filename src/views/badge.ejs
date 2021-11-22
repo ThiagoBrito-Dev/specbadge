@@ -12,6 +12,7 @@
         <button class="btn-share">
           <img
             class="share-image"
+            id="shareBadge"
             src="/images/share.svg"
             alt="Compartilhar crachá"
           />
@@ -89,14 +90,16 @@
   </body>
 
   <div id="modalOverlay" class="modal-overlay">
-    <div class="modal">
+    <div class="modal-edit" id="modalEdit">
       <form action="/badge" method="post">
         <fieldset>
           <legend class="fieldset-title">Dados do Crachá</legend>
 
           <div class="separator"></div>
 
+          <input type="hidden" name="gitHubId" value="<%= data.id %>" />
           <input type="hidden" name="userName" value="<%= data.login %>" />
+
           <div class="input-wrapper">
             <label for="eventName" class="st-label"
               >Você está participando de qual evento atualmente?</label
@@ -164,15 +167,44 @@
           </div>
 
           <div class="actions">
-            <button type="button" id="cancelButton" class="btn-cancel">
+            <button type="button" id="cancelEdit" class="btn-cancel-edit">
               Cancelar
             </button>
-            <button type="submit" id="saveButton" class="btn-save">
-              Salvar
-            </button>
+            <button type="submit" class="btn-save">Salvar</button>
           </div>
         </fieldset>
       </form>
+    </div>
+    <div class="modal-share" id="modalShare">
+      <h2 class="share-title">Compartilhar Crachá</h2>
+
+      <div class="separator"></div>
+
+      <div class="share-content">
+        <div class="copy-container">
+          <label for="shareLink" class="sr-only"
+            >Copie o link abaixo para compartilhar o seu crachá de
+            espectador</label
+          >
+          <input
+            type="text"
+            id="shareLink"
+            class="input"
+            value="http://localhost:3000/badges/<%= data.login %>"
+            readonly
+          />
+          <button type="button" id="copyButton" class="btn-copy">
+            <img
+              src="/images/copy.svg"
+              alt="Copiar para área de transferência"
+              class="copy-image"
+            />
+          </button>
+        </div>
+        <button type="button" id="cancelSharing" class="btn-cancel-sharing">
+          Cancelar
+        </button>
+      </div>
     </div>
   </div>
 </html>

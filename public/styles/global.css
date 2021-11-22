@@ -218,6 +218,7 @@
     h-7.5;
   }
 
+  /* -- MODAL -- */
   .modal-overlay {
     @apply hidden;
   }
@@ -238,19 +239,38 @@
     @apply block
     bg-primary
     rounded
-    max-h-99 
-    sm:max-h-111
-    xl:max-h-full
+    max-h-full
     px-2.5
     py-4
-    m-4
     overflow-y-auto;
+  }
+
+  .modal-edit {
+    @apply hidden;
+  }
+
+  .modal-edit.active {
+    @apply modal
+    min-w-101.25;
+  }
+
+  .modal-share {
+    @apply hidden;
+  }
+
+  .modal-share.active {
+    @apply modal
+    p-4;
   }
 
   .fieldset-title {
     @apply card-title
     text-2xl
     text-button;
+  }
+
+  .share-title {
+    @apply fieldset-title;
   }
 
   .separator {
@@ -271,8 +291,41 @@
   .input {
     @apply h-10 
     text-input 
+    min-w-71
     rounded 
     pl-2;
+  }
+
+  .share-content {
+    @apply input-wrapper
+    gap-3;
+  }
+
+  .copy-container {
+    @apply flex
+    items-center
+    gap-2;
+  }
+
+  .btn-copy {
+    @apply h-10
+    px-2.5
+    rounded
+    bg-button
+    duration-200
+    filter
+    hover:brightness-110
+    transform
+    active:scale-90;
+  }
+
+  .btn-copy.active {
+    @apply bg-pink-fade;
+  }
+
+  .copy-image {
+    @apply w-6
+    h-6;
   }
 
   .st-label {
@@ -290,7 +343,7 @@
     @apply flex
     gap-2
     px-2
-    mt-4.75;
+    mt-4;
   }
 
   .btn-action {
@@ -303,12 +356,18 @@
     transform 
     hover:scale-105
     filter
-    hover:brightness-95;
+    hover:brightness-90;
   }
 
-  .btn-cancel {
+  .btn-cancel-edit {
     @apply btn-action 
     w-2/5 
+    bg-secondary;
+  }
+
+  .btn-cancel-sharing {
+    @apply btn-action
+    w-full
     bg-secondary;
   }
 

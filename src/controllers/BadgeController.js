@@ -1,5 +1,5 @@
-const fetch = require("node-fetch");
 const Profile = require("../models/Profile");
+const fetch = require("node-fetch");
 
 module.exports = {
   async show(req, res) {
@@ -15,7 +15,7 @@ module.exports = {
       // the "message" property references the "Bad Credentials" message, which is returned
       // if an invalid token is passed to the above request.
       if (!userData.message) {
-        const userProfile = await Profile.get(userData.login);
+        const userProfile = await Profile.get(userData.id);
 
         if (userProfile) {
           return res.render("badge", {
@@ -36,6 +36,7 @@ module.exports = {
   },
   async save(req, res) {
     const data = {
+      github_id: Number(req.body.gitHubId),
       user: req.body.userName,
       event: req.body.eventName,
       links: {
@@ -45,7 +46,7 @@ module.exports = {
         twitter: req.body.twitterLink,
       },
     };
-    const userProfile = await Profile.get(data.user);
+    const userProfile = await Profile.get(data.github_id);
 
     if (userProfile) {
       await Profile.update(data);
