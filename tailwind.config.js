@@ -30,6 +30,7 @@ module.exports = {
         inner: "inset 0 0 0 2px #272729",
       },
       minWidth: {
+        60: "15rem",
         71: "17.75rem",
         101.25: "25.3125rem",
       },
@@ -55,6 +56,9 @@ module.exports = {
         94: "23.5rem",
         152: "38rem",
         203: "50.75rem",
+      },
+      screens: {
+        xsm: "375px",
       },
       inset: {
         "-3.75": "-0.9375rem",

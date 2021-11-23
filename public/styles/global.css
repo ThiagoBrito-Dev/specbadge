@@ -15,11 +15,9 @@
     @apply bg-button 
     rounded-full;
   }
-}
 
-@layer components {
   .page {
-    @apply flex 
+    @apply flex
     justify-center
     items-center
     min-h-screen
@@ -29,94 +27,115 @@
     bg-body
     sm:bg-desktop-body
     sm:bg-cover
-    sm:bg-no-repeat 
+    sm:bg-no-repeat
     sm:bg-center;
   }
 
   .has-badge {
-    @apply page 
-    flex-col 
-    sm:justify-start;
+    @apply sm:items-start;
   }
 
-  .badge-top-item {
-    @apply sm:absolute 
-    sm:top-0 
-    sm:right-0
-    mr-3 
-    mt-3;
+  .btn-header {
+    @apply mr-3
+    mt-3
+    sm:absolute
+    sm:top-0
+    sm:right-0;
   }
 
-  .btn {
-    @apply font-medium
-    text-primary 
+  .btn-redirect {
+    @apply text-primary
     rounded;
+  }
+
+  .btn-action {
+    @apply text-button
+    font-semibold
+    rounded-md
+    duration-500
+    px-4
+    py-2.5
+    transform
+    filter
+    hover:scale-105
+    hover:brightness-90;
   }
 
   .social-link-container {
     @apply hover:animate-finite-bounce;
   }
 
+  .modal {
+    @apply block
+    bg-primary
+    rounded
+    max-h-full
+    px-2.5
+    py-4
+    overflow-y-auto;
+  }
+}
+
+@layer components {
   /* HOME PAGE */
   .badge {
-    @apply w-94 
-    sm:w-89.5 
-    h-203 
-    sm:h-152 
-    bg-badge-surface 
-    sm:mt-35 
-    sm:bg-desktop-badge-surface 
-    sm:bg-center 
-    bg-cover;
+    @apply w-94
+    h-203
+    bg-badge-surface
+    bg-cover
+    bg-center
+    sm:w-89.5
+    sm:h-152
+    sm:mt-35
+    sm:bg-desktop-badge-surface;
   }
 
   .badge-header {
-    @apply sm:relative 
-    flex 
+    @apply flex
     justify-end
+    sm:relative
     sm:justify-center;
   }
 
   .badge-band {
     @apply hidden
     sm:block
-    sm:w-20 
-    sm:h-41 
-    sm:bg-badge-band 
+    sm:w-20
+    sm:h-41
+    sm:bg-badge-band
     sm:-mt-35;
   }
 
   .btn-login-redirect {
-    @apply badge-top-item
-    btn 
-    px-4 
-    py-2 
+    @apply btn-header
+    btn-redirect
+    px-4
+    py-2
+    text-lg
+    bg-button
+    duration-500
     hover:text-button
-    text-lg 
-    bg-button 
     hover:bg-transparent
-    hover:shadow-inner
-    duration-500;
+    hover:shadow-inner;
   }
 
   .badge-body {
-    @apply max-w-xs 
-    m-auto 
+    @apply max-w-xs
+    mx-auto
     text-center
     animate-swipe-down;
   }
 
-  .avatar {
-    @apply relative 
-    w-40 
-    mt-32.25 
-    sm:mt-17.5
-    mx-auto;
+  .readable-badge-avatar {
+    @apply relative
+    mt-32.25
+    sm:mt-17.5;
   }
 
-  .avatar-image {
-    @apply w-40 
-    h-46 
+  .img-avatar {
+    @apply w-40
+    h-46
+    mx-auto
     object-cover;
 
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
@@ -127,100 +146,137 @@
   }
 
   .user-name {
-    @apply text-2xl  
+    @apply text-2xl
     mb-1;
   }
 
   .profile-link {
     @apply flex
-    items-center 
-    gap-2 
+    items-center
+    gap-2
     w-max
     m-auto
-    text-secondary 
+    text-secondary
     no-underline;
   }
 
+  .img-github {
+    @apply w-4
+    h-4;
+  }
+
+  .user-biography {
+    @apply mt-8;
+  }
+
+  .badge-footer {
+    @apply mt-16
+    sm:mt-10;
+  }
+
   .social-links-wrapper {
-    @apply flex 
-    justify-center 
-    gap-2 
+    @apply flex
+    justify-center
+    gap-2
     list-none;
+  }
+
+  .img-social {
+    @apply w-12
+    h-12;
   }
   /* -- END --
 
   * LOGIN PAGE */
   .login-card {
     @apply max-w-md
-    bg-primary 
+    bg-primary
     text-tertiary 
-    rounded 
+    rounded
     p-4
     animate-pop;
   }
 
   .card-title {
-    @apply font-semibold 
-    text-4xl 
+    @apply font-semibold
+    text-4xl
     text-center;
   }
 
   .description {
-    @apply mt-3 
-    mb-4 
-    font-medium
+    @apply mt-3
+    mb-4
     text-button
     text-lg;
   }
 
   .btn-login {
-    @apply btn 
-    relative 
-    flex 
-    justify-center 
-    items-center 
+    @apply btn-redirect
+    relative
+    flex
+    justify-center
+    items-center
     w-full
-    text-xl 
-    py-4 
+    text-xl
+    py-4
     bg-tertiary
-    hover:bg-body
-    duration-300;
+    duration-500
+    hover:bg-body;
   }
 
   .btn-icon {
-    @apply absolute left-0 ml-3 w-8 h-8;
+    @apply absolute
+    left-0
+    ml-3
+    w-8
+    h-8;
   }
   /* -- END -- 
   
   * BADGE PAGE */
   .config-wrapper {
-    @apply social-links-wrapper
-    mt-16 
-    sm:mt-10;
+    @apply badge-footer
+    social-links-wrapper;
   }
 
-  .avatar-stamp {
-    @apply absolute 
-    -top-3.75 
-    left-0 
-    z-10;
+  .editable-badge-avatar {
+    @apply relative
+    mt-35.75
+    sm:mt-17.5;
   }
 
   .btn-share {
-    @apply badge-top-item
+    @apply btn-header
+    bg-transparent
     transform
-    hover:scale-110
-    duration-500;
+    duration-500
+    hover:scale-110;
   }
 
-  .share-image {
+  .img-share {
     @apply w-7.5
     h-7.5;
+  }
+
+  .btn-edit {
+    @apply social-link-container;
+  }
+
+  .img-edit {
+    @apply img-social;
   }
 
   /* -- MODAL -- */
   .modal-overlay {
     @apply hidden;
+  }
+
+  .separator {
+    @apply w-full
+    h-hpx 
+    bg-separator
+    mt-2
+    mb-3.5;
   }
 
   .modal-overlay.active {
@@ -235,50 +291,24 @@
     bg-overlay;
   }
 
-  .modal {
-    @apply block
-    bg-primary
-    rounded
-    max-h-full
-    px-2.5
-    py-4
-    overflow-y-auto;
-  }
-
   .modal-edit {
     @apply hidden;
   }
 
+  .modal-edit::-webkit-scrollbar {
+    @apply hidden
+    sm:block;
+  }
+
   .modal-edit.active {
     @apply modal
-    min-w-101.25;
-  }
-
-  .modal-share {
-    @apply hidden;
-  }
-
-  .modal-share.active {
-    @apply modal
-    p-4;
+    sm:min-w-101.25;
   }
 
   .fieldset-title {
     @apply card-title
     text-2xl
     text-button;
-  }
-
-  .share-title {
-    @apply fieldset-title;
-  }
-
-  .separator {
-    @apply w-full
-    h-hpx 
-    bg-separator
-    mt-2
-    mb-3.5;
   }
 
   .input-wrapper {
@@ -288,12 +318,64 @@
     px-2;
   }
 
+  .label {
+    @apply text-quaternary
+    mb-1;
+  }
+
+  .st-label {
+    @apply label;
+  }
+
+  .labels {
+    @apply label
+    mt-3.5;
+  }
+
   .input {
-    @apply h-10 
-    text-input 
-    min-w-71
-    rounded 
-    pl-2;
+    @apply h-10
+    w-full
+    text-input
+    rounded
+    pl-2
+    xsm:min-w-71;
+  }
+
+  .actions {
+    @apply flex
+    gap-2
+    px-2
+    mt-4;
+  }
+
+  .btn-cancel-edit {
+    @apply btn-action 
+    w-2/5 
+    bg-secondary;
+  }
+
+  .btn-save {
+    @apply btn-action 
+    w-3/5
+    bg-gradient-to-r 
+    from-pink-fade 
+    to-yellow-fade;
+  }
+
+  .modal-share {
+    @apply hidden;
+  }
+
+  .modal-share.active {
+    @apply modal
+    px-2.5
+    py-4
+    min-w-full
+    xsm:min-w-max;
+  }
+
+  .share-title {
+    @apply fieldset-title;
   }
 
   .share-content {
@@ -314,8 +396,8 @@
     bg-button
     duration-200
     filter
-    hover:brightness-110
     transform
+    hover:brightness-110
     active:scale-90;
   }
 
@@ -323,46 +405,9 @@
     @apply bg-pink-fade;
   }
 
-  .copy-image {
+  .img-copy {
     @apply w-6
     h-6;
-  }
-
-  .st-label {
-    @apply text-quaternary 
-    mb-1;
-  }
-
-  .label {
-    @apply text-quaternary
-    mt-3.5 
-    mb-1;
-  }
-
-  .actions {
-    @apply flex
-    gap-2
-    px-2
-    mt-4;
-  }
-
-  .btn-action {
-    @apply text-button
-    font-semibold
-    rounded-md 
-    duration-500 
-    px-4 
-    py-2.5 
-    transform 
-    hover:scale-105
-    filter
-    hover:brightness-90;
-  }
-
-  .btn-cancel-edit {
-    @apply btn-action 
-    w-2/5 
-    bg-secondary;
   }
 
   .btn-cancel-sharing {
@@ -370,13 +415,7 @@
     w-full
     bg-secondary;
   }
-
-  .btn-save {
-    @apply btn-action 
-    w-3/5
-    bg-gradient-to-r 
-    from-pink-fade 
-    to-yellow-fade;
-  }
-  /* --- END --- */
+  /* --- END --- 
+  
+  * ERROR PAGE */
 }

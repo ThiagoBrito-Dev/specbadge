@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <% if (hasProfile) { %> <%- include("parts/head", { pageName: data.name,
-  hasEvent: true, eventName: profile.event, hasScript: true, fileName: "badge"
-  }) %> <% } else { %> <%- include("parts/head", { pageName: data.name,
-  hasEvent: false, hasScript: true, fileName: "badge" }) %> <% } %>
+  <% if (hasProfile) { %><%- include("parts/head", { pageName: data.name,
+  hasEvent: true, eventName: profile.event}) %><% } else { %><%-
+  include("parts/head", { pageName: data.name, hasEvent: false }) %><% } %>
 
   <body class="page has-badge">
     <main class="badge">
       <header class="badge-header">
         <div class="badge-band"></div>
-        <button class="btn-share">
+        <button id="shareBadge" class="btn-share">
           <img
-            class="share-image"
-            id="shareBadge"
             src="/images/share.svg"
             alt="Compartilhar crachá"
+            class="img-share"
           />
         </button>
       </header>
       <section class="badge-body">
-        <header class="avatar mt-35.75 sm:mt-17.5">
-          <span class="avatar-stamp">
-            <!-- <img src="/images/rocket-stamp.svg" alt="Selo da Rocketseat" /> -->
-          </span>
+        <header class="editable-badge-avatar">
           <img
-            class="avatar-image"
             src="<%= data.avatar_url %>"
             alt="<%= data.name %>"
+            class="img-avatar"
           />
         </header>
         <section>
@@ -35,54 +30,78 @@
             <a
               href="<%= data.html_url %>"
               target="_blank"
-              policy="noreferrer noopener"
+              rel="noreferrer noopener"
               class="profile-link"
             >
-              <img src="/images/github.svg" alt="Ícone do GitHub" />
+              <img
+                src="/images/github.svg"
+                alt="Ícone do GitHub"
+                class="img-github"
+              />
               <span><%= data.login %></span>
             </a>
           </div>
-          <p class="mt-8"><%= data.bio %></p>
+          <p class="user-biography"><%= data.bio %></p>
         </section>
         <footer class="config-wrapper">
           <div class="social-link-container">
             <a
               href="<% if (hasProfile) { %>https://youtube.com/<%= profile.links.youtube %><% } else { %>#<% } %>"
               target="_blank"
-              policy="noreferrer noopener"
+              rel="noreferrer noopener"
             >
-              <img src="/images/youtube.svg" alt="Ícone do YouTube" />
+              <img
+                src="/images/youtube.svg"
+                alt="Ícone do YouTube"
+                class="img-social"
+              />
             </a>
           </div>
           <div class="social-link-container">
             <a
               href="<% if (hasProfile) { %>https://instagram.com/<%= profile.links.instagram %>/<% } else { %>#<% } %>"
               target="_blank"
-              policy="noreferrer noopener"
+              rel="noreferrer noopener"
             >
-              <img src="/images/instagram.svg" alt="Ícone do Instagram" />
+              <img
+                src="/images/instagram.svg"
+                alt="Ícone do Instagram"
+                class="img-social"
+              />
             </a>
           </div>
           <div class="social-link-container">
             <a
               href="<% if (hasProfile) { %>https://facebook.com/<%= profile.links.facebook %><% } else { %>#<% } %>"
               target="_blank"
-              policy="noreferrer noopener"
+              rel="noreferrer noopener"
             >
-              <img src="/images/facebook.svg" alt="Ícone do Facebook" />
+              <img
+                src="/images/facebook.svg"
+                alt="Ícone do Facebook"
+                class="img-social"
+              />
             </a>
           </div>
           <div class="social-link-container">
             <a
               href="<% if (hasProfile) { %>https://twitter.com/<%= profile.links.twitter %><% } else { %>#<% } %>"
               target="_blank"
-              policy="noreferrer noopener"
+              rel="noreferrer noopener"
             >
-              <img src="/images/twitter.svg" alt="Ícone do Twitter" />
+              <img
+                src="/images/twitter.svg"
+                alt="Ícone do Twitter"
+                class="img-social"
+              />
             </a>
           </div>
-          <button type="button" id="editBadge" class="social-link-container">
-            <img src="/images/edit.svg" alt="Ícone de edição" />
+          <button type="button" id="editBadge" class="btn-edit">
+            <img
+              src="/images/edit.svg"
+              alt="Ícone de edição"
+              class="img-edit"
+            />
           </button>
         </footer>
       </section>
@@ -90,7 +109,7 @@
   </body>
 
   <div id="modalOverlay" class="modal-overlay">
-    <div class="modal-edit" id="modalEdit">
+    <div id="modalEdit" class="modal-edit">
       <form action="/badge" method="post">
         <fieldset>
           <legend class="fieldset-title">Dados do Crachá</legend>
@@ -114,7 +133,7 @@
             />
           </div>
           <div class="input-wrapper">
-            <label for="youtubeLink" class="label"
+            <label for="youtubeLink" class="labels"
               >Qual é o nome do seu canal do YouTube?</label
             >
             <input
@@ -127,7 +146,7 @@
             />
           </div>
           <div class="input-wrapper">
-            <label for="instagramLink" class="label"
+            <label for="instagramLink" class="labels"
               >Qual é o seu usuário do Instagram?</label
             >
             <input
@@ -140,7 +159,7 @@
             />
           </div>
           <div class="input-wrapper">
-            <label for="facebookLink" class="label"
+            <label for="facebookLink" class="labels"
               >Qual é o seu perfil do Facebook?</label
             >
             <input
@@ -153,8 +172,8 @@
             />
           </div>
           <div class="input-wrapper">
-            <label for="twitterLink" class="label"
-              >Qual é o nome do seu usuário no Twitter?</label
+            <label for="twitterLink" class="labels"
+              >Qual é o nome do seu usuário do Twitter?</label
             >
             <input
               type="text"
@@ -175,7 +194,7 @@
         </fieldset>
       </form>
     </div>
-    <div class="modal-share" id="modalShare">
+    <div id="modalShare" class="modal-share">
       <h2 class="share-title">Compartilhar Crachá</h2>
 
       <div class="separator"></div>
@@ -188,16 +207,16 @@
           >
           <input
             type="text"
+            value="http://localhost:3000/badges/<%= data.login %>"
             id="shareLink"
             class="input"
-            value="http://localhost:3000/badges/<%= data.login %>"
             readonly
           />
           <button type="button" id="copyButton" class="btn-copy">
             <img
               src="/images/copy.svg"
               alt="Copiar para área de transferência"
-              class="copy-image"
+              class="img-copy"
             />
           </button>
         </div>
@@ -207,4 +226,6 @@
       </div>
     </div>
   </div>
+
+  <script src="/scripts/badge.js"></script>
 </html>

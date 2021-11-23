@@ -4,6 +4,6 @@ module.exports = {
       return res.redirect("/badge");
     }
 
-    return res.render("index", { hasData: false });
+    return res.render("readable-badge", { hasData: false });
   },
 };

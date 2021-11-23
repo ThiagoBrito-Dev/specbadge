@@ -18,13 +18,13 @@ module.exports = {
         const userProfile = await Profile.get(userData.id);
 
         if (userProfile) {
-          return res.render("badge", {
+          return res.render("editable-badge", {
             data: userData,
             hasProfile: true,
             profile: userProfile,
           });
         } else {
-          return res.render("badge", {
+          return res.render("editable-badge", {
             data: userData,
             hasProfile: false,
           });

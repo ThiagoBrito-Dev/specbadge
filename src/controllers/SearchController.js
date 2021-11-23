@@ -12,7 +12,7 @@ module.exports = {
       );
 
       if (userData.id === userProfile.github_id) {
-        return res.render("index", {
+        return res.render("readable-badge", {
           hasData: true,
           data: userData,
           profile: userProfile,
