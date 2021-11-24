@@ -1,12 +1,12 @@
-const Client = require("./config");
+const { client } = require("./config");
 
 const initializeDatabase = {
   async init() {
     try {
-      await Client.connect();
+      await client.connect();
       console.log("Connected to the server");
 
-      const database = Client.db("specbadge");
+      const database = client.db("specbadge");
       await database.createCollection("profiles", {
         validator: {
           $jsonSchema: {
@@ -56,7 +56,7 @@ const initializeDatabase = {
         `Unfortunately, the following error occurred during the connection: ${error.message}`
       );
     } finally {
-      await Client.close();
+      await client.close();
     }
   },
 };

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <% if (hasProfile) { %><%- include("parts/head", { pageName: data.name,
-  hasEvent: true, eventName: profile.event}) %><% } else { %><%-
-  include("parts/head", { pageName: data.name, hasEvent: false }) %><% } %>
+  <% if (hasProfileData) { %><%- include("parts/head", { pageName:
+  gitHubData.name, hasEvent: true, eventName: profileData.event}) %><% } else {
+  %><%- include("parts/head", { pageName: gitHubData.name, hasEvent: false })
+  %><% } %>
 
   <body class="page has-badge">
     <main class="badge">
@@ -19,16 +20,16 @@
       <section class="badge-body">
         <header class="editable-badge-avatar">
           <img
-            src="<%= data.avatar_url %>"
-            alt="<%= data.name %>"
+            src="<%= gitHubData.avatar_url %>"
+            alt="<%= gitHubData.name %>"
             class="img-avatar"
           />
         </header>
         <section>
           <div class="identification">
-            <h1 class="user-name"><%= data.name %></h1>
+            <h1 class="user-name"><%= gitHubData.name %></h1>
             <a
-              href="<%= data.html_url %>"
+              href="<%= gitHubData.html_url %>"
               target="_blank"
               rel="noreferrer noopener"
               class="profile-link"
@@ -38,15 +39,15 @@
                 alt="Ícone do GitHub"
                 class="img-github"
               />
-              <span><%= data.login %></span>
+              <span><%= gitHubData.login %></span>
             </a>
           </div>
-          <p class="user-biography"><%= data.bio %></p>
+          <p class="user-biography"><%= gitHubData.bio %></p>
         </section>
         <footer class="config-wrapper">
           <div class="social-link-container">
             <a
-              href="<% if (hasProfile) { %>https://youtube.com/<%= profile.links.youtube %><% } else { %>#<% } %>"
+              href="<% if (hasProfileData) { %>https://youtube.com/<%= profileData.links.youtube %><% } else { %>#<% } %>"
               target="_blank"
               rel="noreferrer noopener"
             >
@@ -59,7 +60,7 @@
           </div>
           <div class="social-link-container">
             <a
-              href="<% if (hasProfile) { %>https://instagram.com/<%= profile.links.instagram %>/<% } else { %>#<% } %>"
+              href="<% if (hasProfileData) { %>https://instagram.com/<%= profileData.links.instagram %>/<% } else { %>#<% } %>"
               target="_blank"
               rel="noreferrer noopener"
             >
@@ -72,7 +73,7 @@
           </div>
           <div class="social-link-container">
             <a
-              href="<% if (hasProfile) { %>https://facebook.com/<%= profile.links.facebook %><% } else { %>#<% } %>"
+              href="<% if (hasProfileData) { %>https://facebook.com/<%= profileData.links.facebook %><% } else { %>#<% } %>"
               target="_blank"
               rel="noreferrer noopener"
             >
@@ -85,7 +86,7 @@
           </div>
           <div class="social-link-container">
             <a
-              href="<% if (hasProfile) { %>https://twitter.com/<%= profile.links.twitter %><% } else { %>#<% } %>"
+              href="<% if (hasProfileData) { %>https://twitter.com/<%= profileData.links.twitter %><% } else { %>#<% } %>"
               target="_blank"
               rel="noreferrer noopener"
             >
@@ -116,8 +117,12 @@
 
           <div class="separator"></div>
 
-          <input type="hidden" name="gitHubId" value="<%= data.id %>" />
-          <input type="hidden" name="userName" value="<%= data.login %>" />
+          <input type="hidden" name="gitHubId" value="<%= gitHubData.id %>" />
+          <input
+            type="hidden"
+            name="userName"
+            value="<%= gitHubData.login %>"
+          />
 
           <div class="input-wrapper">
             <label for="eventName" class="st-label"
@@ -126,7 +131,7 @@
             <input
               type="text"
               name="eventName"
-              value="<% if (hasProfile) { %><%=profile.event%><% } %>"
+              value="<% if (hasProfileData) { %><%=profileData.event%><% } %>"
               id="eventName"
               class="input"
               placeholder="Nome do evento"
@@ -139,7 +144,7 @@
             <input
               type="text"
               name="youtubeLink"
-              value="<% if (hasProfile) { %><%= profile.links.youtube %><% } %>"
+              value="<% if (hasProfileData) { %><%= profileData.links.youtube %><% } %>"
               id="youtubeLink"
               class="input"
               placeholder="youtube.com/"
@@ -152,7 +157,7 @@
             <input
               type="text"
               name="instagramLink"
-              value="<% if (hasProfile) { %><%= profile.links.instagram %><% } %>"
+              value="<% if (hasProfileData) { %><%= profileData.links.instagram %><% } %>"
               id="instagramLink"
               class="input"
               placeholder="instagram.com/"
@@ -165,7 +170,7 @@
             <input
               type="text"
               name="facebookLink"
-              value="<% if (hasProfile) { %><%= profile.links.facebook %><% } %>"
+              value="<% if (hasProfileData) { %><%= profileData.links.facebook %><% } %>"
               id="facebookLink"
               class="input"
               placeholder="facebook.com/"
@@ -178,7 +183,7 @@
             <input
               type="text"
               name="twitterLink"
-              value="<% if (hasProfile) { %><%= profile.links.twitter %><% } %>"
+              value="<% if (hasProfileData) { %><%= profileData.links.twitter %><% } %>"
               id="twitterLink"
               class="input"
               placeholder="twitter.com/"
@@ -207,7 +212,7 @@
           >
           <input
             type="text"
-            value="http://localhost:3000/badges/<%= data.login %>"
+            value="http://localhost:3000/badges/<%= gitHubData.login %>"
             id="shareLink"
             class="input"
             readonly

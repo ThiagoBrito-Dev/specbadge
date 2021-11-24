@@ -6,7 +6,7 @@ module.exports = {
     const accessToken = req.session.token;
 
     if (accessToken) {
-      const userData = await fetch(`https://api.github.com/user`, {
+      const userGitHubData = await fetch(`https://api.github.com/user`, {
         headers: {
           Authorization: `token ${accessToken}`,
         },
@@ -14,19 +14,19 @@ module.exports = {
 
       // the "message" property references the "Bad Credentials" message, which is returned
       // if an invalid token is passed to the above request.
-      if (!userData.message) {
-        const userProfile = await Profile.get(userData.id);
+      if (!userGitHubData.message) {
+        const userProfileData = await Profile.get(userGitHubData.id);
 
-        if (userProfile) {
+        if (userProfileData) {
           return res.render("editable-badge", {
-            data: userData,
-            hasProfile: true,
-            profile: userProfile,
+            gitHubData: userGitHubData,
+            hasProfileData: true,
+            profileData: userProfileData,
           });
         } else {
           return res.render("editable-badge", {
-            data: userData,
-            hasProfile: false,
+            gitHubData: userGitHubData,
+            hasProfileData: false,
           });
         }
       }

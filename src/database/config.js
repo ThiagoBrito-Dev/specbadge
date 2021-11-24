@@ -4,7 +4,19 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: ".env.local" });
 }
 
-const password = process.env.DATABASE_USER_PASSWORD;
-const url = `mongodb+srv://trybrito:${password}@credential.2svbf.mongodb.net/specbadge?retryWrites=true&w=majority`;
+function fixedEncodeURIComponent(string) {
+  // this function extends the functionality of the "encodeURIComponent" function, because,
+  // according to the RFC 3986 the following characters do not have to be used in URIs:
+  return encodeURIComponent(string).replace(/[!'()*]/g, (char) => {
+    return "%" + char.charCodeAt(0).toString(16);
+  });
+}
 
-module.exports = new MongoClient(url);
+const user = fixedEncodeURIComponent(process.env.DATABASE_USER);
+const password = fixedEncodeURIComponent(process.env.DATABASE_USER_PASSWORD);
+const cluster = fixedEncodeURIComponent(process.env.CLUSTER_NAME);
+
+const uri = `mongodb+srv://${user}:${password}@${cluster}.2svbf.mongodb.net/specbadge?retryWrites=true&w=majority`;
+const client = new MongoClient(uri);
+
+module.exports = client;

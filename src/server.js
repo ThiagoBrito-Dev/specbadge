@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const client = require("./database/config");
 const router = require("./routes");
 
 if (process.env.NODE_ENV !== "production") {
@@ -20,6 +22,9 @@ server.use(
     saveUninitialized: false,
     resave: false,
     cookie: { maxAge: weekInMs },
+    store: MongoStore.create({
+      clientPromise: client.connect(),
+    }),
   })
 );
 server.use(router);
