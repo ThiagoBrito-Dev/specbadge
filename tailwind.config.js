@@ -2,6 +2,15 @@ module.exports = {
   purge: ["./src/views/**/*.ejs"],
   darkMode: false,
   theme: {
+    screens: {
+      xs: "375px",
+      ml: "425px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     fontFamily: {
       primary: ["Roboto", "sans-serif"],
     },
@@ -19,12 +28,20 @@ module.exports = {
       separator: "rgba(0, 0, 0, 0.1)",
       transparent: "transparent",
     },
+    letterSpacing: {
+      widest: "0.2rem",
+    },
     extend: {
       backgroundImage: {
         "badge-surface": "url(/images/badge.svg)",
         "badge-band": "url(/images/band.svg)",
         "desktop-body": "url(/images/body-desktop.svg)",
         "desktop-badge-surface": "url(/images/badge-desktop.svg)",
+      },
+      fontSize: {
+        "2.5xl": ["1.6rem", "2.1rem"],
+        "3.5xl": ["2.125rem", "2.375rem"],
+        "3.75xl": ["2.15rem", "2.4rem"],
       },
       boxShadow: {
         inner: "inset 0 0 0 2px #272729",
@@ -35,13 +52,14 @@ module.exports = {
         101.25: "25.3125rem",
       },
       maxWidth: {
-        xs: "15.625rem",
+        68: "16.75rem",
       },
       maxHeight: {
         200: "50rem",
       },
       spacing: {
         hpx: "0.5px",
+        1.75: "0.4375rem",
         4.5: "1.125rem",
         7.5: "1.875rem",
         15: "3.75rem",

@@ -20,6 +20,10 @@ module.exports = {
       }
     }
 
-    return res.render("error");
+    return res.render("not-found", {
+      title: "Crachá não encontrado",
+      message:
+        "Sentimos muito, mas não conseguimos encontrar o crachá desse usuário!",
+    });
   },
 };
