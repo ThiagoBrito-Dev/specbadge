@@ -4,7 +4,12 @@
 
 @layer base {
   ::-webkit-scrollbar {
-    @apply w-1.5;
+    @apply w-1.5
+    h-1.5
+    xl:w-2
+    xl:h-2
+    2xl:w-2.5
+    2xl:h-2.5;
   }
 
   ::-webkit-scrollbar-track {
@@ -52,16 +57,22 @@
   }
 
   .btn-action {
-    @apply text-body
+    @apply text-base
+    text-body
+    leading-none
     font-medium
     rounded-md
     duration-500
     px-4
-    py-2.5
+    py-3.5
     transform
     filter
     hover:scale-105
-    hover:brightness-90;
+    hover:brightness-90
+    xl:text-xl
+    xl:py-3
+    2xl:text-1.75xl
+    2xl:py-3.75;
   }
 
   .social-link-container {
@@ -75,7 +86,11 @@
     max-h-full
     px-2.5
     py-4
-    overflow-y-auto;
+    overflow-y-auto
+    xl:px-3
+    xl:py-4.5
+    2xl:px-3.5
+    2xl:py-5;
   }
 }
 
@@ -83,12 +98,15 @@
   /* HOME PAGE */
   .badge {
     @apply w-94
-    h-203
+    /* h-203 */
+    h-full
+    pb-42
     bg-badge-surface
     bg-cover
-    bg-center
-    sm:w-89.5
-    sm:h-152
+    bg-top
+    /* sm:w-89.5 */
+    sm:pb-16
+    /* sm:h-152 */
     sm:mt-35
     sm:bg-desktop-badge-surface;
   }
@@ -131,8 +149,8 @@
 
   .readable-badge-avatar {
     @apply relative
-    mt-32.25
-    sm:mt-17.5;
+    mt-29
+    sm:mt-14.5;
   }
 
   .img-avatar {
@@ -151,29 +169,36 @@
   .user-name {
     @apply text-2xl
     mb-1
-    xl:text-2.5xl;
+    2xl:text-2.5xl;
   }
 
   .profile-link {
     @apply flex
     items-center
     gap-2
+    text-base
     w-max
     m-auto
     text-secondary
     no-underline
-    xl:text-lg;
+    xl:text-lg
+    2xl:text-xl;
   }
 
   .img-github {
     @apply w-4
-    h-4;
+    h-4
+    xl:w-4.5
+    xl:h-4.5
+    2xl:w-5
+    2xl:h-5;
   }
 
   .user-biography {
     @apply text-base
     mt-8
-    xl:text-lg;
+    xl:text-lg
+    2xl:text-xl;
   }
 
   .badge-footer {
@@ -201,20 +226,26 @@
     text-tertiary 
     rounded
     p-4
-    animate-pop;
+    animate-pop
+    xl:max-w-card-md
+    2xl:max-w-card-lg;
   }
 
   .card-title {
     @apply font-semibold
     text-4xl
-    text-center;
+    text-center
+    xl:text-4.5xl
+    2xl:text-4.75xl;
   }
 
   .description {
     @apply mt-3
     mb-4
     text-button
-    text-lg;
+    text-lg
+    xl:text-1.5xl
+    2xl:text-2xl;
   }
 
   .btn-login {
@@ -228,7 +259,9 @@
     py-4
     bg-tertiary
     duration-500
-    hover:bg-body;
+    hover:bg-body
+    xl:text-1.5xl
+    2xl:text-2xl;
   }
 
   .btn-icon {
@@ -248,8 +281,9 @@
 
   .editable-badge-avatar {
     @apply relative
-    mt-35.75
-    sm:mt-17.5;
+    mt-41.75
+    sm:mt-21.25
+    xl:mt-23.5;
   }
 
   .btn-share {
@@ -262,7 +296,9 @@
 
   .img-share {
     @apply w-7.5
-    h-7.5;
+    h-7.5
+    xl:w-8.5
+    xl:h-8.5;
   }
 
   .btn-edit {
@@ -283,7 +319,11 @@
     h-hpx 
     bg-separator
     mt-2
-    mb-3.5;
+    mb-3.5
+    xl:mt-2.5
+    xl:mb-4
+    2xl:mt-3.5
+    2xl:mb-4.5;
   }
 
   .modal-overlay.active {
@@ -314,20 +354,29 @@
 
   .fieldset-title {
     @apply card-title
-    text-2xl
-    text-button;
+    text-2.5xl
+    text-button
+    xl:text-3xl
+    2xl:text-3.75xl;
   }
 
   .input-wrapper {
     @apply flex 
     flex-col
     text-button
-    px-2;
+    px-2
+    xl:px-2.5
+    2xl:px-3;
   }
 
   .label {
-    @apply text-quaternary
-    mb-1;
+    @apply text-base
+    text-quaternary
+    mb-1
+    xl:text-xl
+    xl:mb-1.5
+    2xl:text-1.75xl
+    2xl:mb-2;
   }
 
   .st-label {
@@ -336,23 +385,36 @@
 
   .labels {
     @apply label
-    mt-3.5;
+    mt-3.5
+    xl:mt-4
+    2xl:mt-5;
   }
 
   .input {
     @apply h-10
     w-full
+    text-base
     text-input
     rounded
     pl-2
-    xs:min-w-71;
+    xs:min-w-71
+    xl:text-xl
+    xl:h-11.5
+    2xl:text-1.75xl
+    2xl:h-12.5;
   }
 
   .actions {
     @apply flex
     gap-2
     px-2
-    mt-4;
+    mt-4
+    xl:px-2.5
+    xl:mt-4.5
+    xl:gap-2.5
+    2xl:px-3.5
+    2xl:mt-5.5
+    2xl:gap-3;
   }
 
   .btn-cancel-edit {
@@ -378,7 +440,9 @@
     px-2.5
     py-4
     min-w-full
-    xs:min-w-max;
+    xs:min-w-max
+    xl:py-4.5
+    2xl:py-5;
   }
 
   .share-title {
@@ -387,13 +451,19 @@
 
   .share-content {
     @apply input-wrapper
-    gap-3;
+    gap-3
+    xl:gap-3.5
+    2xl:gap-4;
   }
 
   .copy-container {
     @apply flex
     items-center
-    gap-2;
+    gap-2
+    xl:w-104
+    xl:gap-2.5
+    2xl:w-118.5
+    2xl:gap-2.5;
   }
 
   .btn-copy {
@@ -405,7 +475,11 @@
     filter
     transform
     hover:brightness-110
-    active:scale-90;
+    active:scale-90
+    xl:h-11.5
+    xl:px-3
+    2xl:h-12.5
+    2xl:px-3.5;
   }
 
   .btn-copy.active {
@@ -414,7 +488,11 @@
 
   .img-copy {
     @apply w-6
-    h-6;
+    h-6
+    xl:w-7.5
+    xl:h-7.5
+    2xl:w-8.5
+    2xl:h-8.5;
   }
 
   .btn-cancel-sharing {
@@ -426,22 +504,26 @@
   
   * NOT FOUND PAGE */
   .not-found-container {
-    @apply px-6
-    py-4;
+    @apply p-6;
   }
 
   .not-found-code {
     @apply font-medium
-    text-6xl
-    ml:text-7xl
-    sm:text-8xl
+    text-5xl
     w-max
     mx-auto
+    mb-4
     tracking-widest
     bg-gradient-to-r
     from-pink-fade
     to-yellow-fade
-    bg-clip-text;
+    bg-clip-text
+    ml:text-6xl
+    ml:mb-5
+    sm:text-7xl
+    sm:mb-6
+    xl:text-7.5xl
+    2xl:text-7.75xl;
 
     -webkit-text-fill-color: transparent;
   }
@@ -459,11 +541,13 @@
   .not-found-message {
     @apply text-center
     text-xl
-    ml:mt-1
-    ml:text-2xl
-    sm:text-3xl
-    xl:text-3.5xl
-    2xl:text-3.75xl;
+    mt-4
+    ml:mt-5
+    ml:text-1.5xl
+    sm:text-2xl
+    sm:mt-6
+    xl:text-3xl
+    2xl:text-3.5xl;
   }
   /* -- END -- */
 }
