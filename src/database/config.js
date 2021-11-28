@@ -17,6 +17,7 @@ const password = fixedEncodeURIComponent(process.env.DATABASE_USER_PASSWORD);
 const cluster = fixedEncodeURIComponent(process.env.CLUSTER_NAME);
 
 const uri = `mongodb+srv://${user}:${password}@${cluster}.2svbf.mongodb.net/specbadge?retryWrites=true&w=majority`;
-const client = new MongoClient(uri);
+const options = { appName: "specbadge", minPoolSize: 25 };
+const client = new MongoClient(uri, options);
 
 module.exports = client;
