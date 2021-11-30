@@ -62,11 +62,17 @@ Well, with everything installed and ready, we can proceed to the step by step of
 ### 🕹️ Running the application
 
 ```bash
-# First of all, clone this repo using GIT
+# First of all, clone this repo using GIT.
 $ git clone <https://github.com/trybrito/specbadge>
 
-# Access the project folder from the command terminal
+# Access the project folder from the command terminal.
 $ cd .../specbadge
+
+# Install the package.json dependencies.
+$ yarn / npm install
+
+# Initialize the database.
+$ yarn init-db
 
 # Run the application server.
 $ yarn server
