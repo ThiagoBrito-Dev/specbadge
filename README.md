@@ -3,7 +3,7 @@
     <h1>SpecBadge</h1>
     <img src="./.github/specbadge.png" />
     <h3>
-      🎫 Uma aplicação JavaScript Vanilla para criação, visualização e personalização de crachás virtuais de espectador
+      🎫 Uma aplicação JavaScript Vanilla para a criação, visualização e personalização de crachás virtuais de espectador
     </h3>
   </div>
 
@@ -74,6 +74,9 @@ $ cd .../specbadge
 
 # Instale as dependências presentes no package.json.
 $ yarn / npm install
+
+# Inicialize o banco de dados.
+$ yarn init-db
 
 # Execute o servidor da aplicação.
 $ yarn server
