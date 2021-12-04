@@ -3,21 +3,22 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply xl:text-125%
+    2xl:text-150%;
+  }
+
   ::-webkit-scrollbar {
     @apply w-1.5
-    h-1.5
-    xl:w-2
-    xl:h-2
-    2xl:w-2.5
-    2xl:h-2.5;
+    h-1.5;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-transparent;
+    @apply bg-utils-transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-button 
+    @apply bg-components-button 
     rounded-full;
   }
 
@@ -29,11 +30,11 @@
     font-primary
     text-primary
     antialiased
-    bg-body;
+    bg-components-page;
   }
 
   .has-img-background {
-    @apply sm:bg-desktop-body
+    @apply sm:bg-desktop-page
     sm:bg-cover
     sm:bg-no-repeat
     sm:bg-center;
@@ -58,7 +59,7 @@
 
   .btn-action {
     @apply text-base
-    text-body
+    text-components-page
     leading-none
     font-medium
     rounded-md
@@ -69,10 +70,7 @@
     filter
     hover:scale-105
     hover:brightness-90
-    xl:text-xl
-    xl:py-3
-    2xl:text-1.75xl
-    2xl:py-3.75;
+    xl:py-3;
   }
 
   .social-link-container {
@@ -86,11 +84,7 @@
     max-h-full
     px-2.5
     py-4
-    overflow-y-auto
-    xl:px-3
-    xl:py-4.5
-    2xl:px-3.5
-    2xl:py-5;
+    overflow-y-auto;
   }
 }
 
@@ -98,15 +92,12 @@
   /* HOME PAGE */
   .badge {
     @apply w-94
-    /* h-203 */
     h-full
     pb-42
     bg-badge-surface
     bg-cover
     bg-top
-    /* sm:w-89.5 */
     sm:pb-16
-    /* sm:h-152 */
     sm:mt-35
     sm:bg-desktop-badge-surface;
   }
@@ -124,6 +115,8 @@
     sm:w-20
     sm:h-41
     sm:bg-badge-band
+    sm:bg-cover
+    sm:bg-no-repeat
     sm:-mt-35;
   }
 
@@ -133,10 +126,10 @@
     px-4
     py-2
     text-lg
-    bg-button
+    bg-components-button
     duration-500
-    hover:text-button
-    hover:bg-transparent
+    hover:text-components-button
+    hover:bg-utils-transparent
     hover:shadow-inner;
   }
 
@@ -168,8 +161,7 @@
 
   .user-name {
     @apply text-2xl
-    mb-1
-    2xl:text-2.5xl;
+    mb-1;
   }
 
   .profile-link {
@@ -180,25 +172,17 @@
     w-max
     m-auto
     text-secondary
-    no-underline
-    xl:text-lg
-    2xl:text-xl;
+    no-underline;
   }
 
   .img-github {
     @apply w-4
-    h-4
-    xl:w-4.5
-    xl:h-4.5
-    2xl:w-5
-    2xl:h-5;
+    h-4;
   }
 
   .user-biography {
     @apply text-base
-    mt-8
-    xl:text-lg
-    2xl:text-xl;
+    mt-8;
   }
 
   .badge-footer {
@@ -226,26 +210,20 @@
     text-tertiary 
     rounded
     p-4
-    animate-pop
-    xl:max-w-card-md
-    2xl:max-w-card-lg;
+    animate-pop;
   }
 
   .card-title {
     @apply font-semibold
     text-4xl
-    text-center
-    xl:text-4.5xl
-    2xl:text-4.75xl;
+    text-center;
   }
 
   .description {
     @apply mt-3
     mb-4
-    text-button
-    text-lg
-    xl:text-1.5xl
-    2xl:text-2xl;
+    text-components-button
+    text-lg;
   }
 
   .btn-login {
@@ -259,9 +237,7 @@
     py-4
     bg-tertiary
     duration-500
-    hover:bg-body
-    xl:text-1.5xl
-    2xl:text-2xl;
+    hover:bg-components-page;
   }
 
   .btn-icon {
@@ -282,13 +258,12 @@
   .editable-badge-avatar {
     @apply relative
     mt-41.75
-    sm:mt-21.25
-    xl:mt-23.5;
+    sm:mt-21.25;
   }
 
   .btn-share {
     @apply btn-header
-    bg-transparent
+    bg-utils-transparent
     transform
     duration-500
     hover:scale-110;
@@ -296,9 +271,7 @@
 
   .img-share {
     @apply w-7.5
-    h-7.5
-    xl:w-8.5
-    xl:h-8.5;
+    h-7.5;
   }
 
   .btn-edit {
@@ -317,13 +290,9 @@
   .separator {
     @apply w-full
     h-hpx 
-    bg-separator
+    bg-components-separator
     mt-2
-    mb-3.5
-    xl:mt-2.5
-    xl:mb-4
-    2xl:mt-3.5
-    2xl:mb-4.5;
+    mb-3.5;
   }
 
   .modal-overlay.active {
@@ -335,7 +304,7 @@
     items-center
     w-full
     h-full
-    bg-overlay;
+    bg-components-overlay;
   }
 
   .modal-edit {
@@ -355,28 +324,20 @@
   .fieldset-title {
     @apply card-title
     text-2.5xl
-    text-button
-    xl:text-3xl
-    2xl:text-3.75xl;
+    text-components-button;
   }
 
   .input-wrapper {
     @apply flex 
     flex-col
-    text-button
-    px-2
-    xl:px-2.5
-    2xl:px-3;
+    text-components-button
+    px-2;
   }
 
   .label {
     @apply text-base
     text-quaternary
-    mb-1
-    xl:text-xl
-    xl:mb-1.5
-    2xl:text-1.75xl
-    2xl:mb-2;
+    mb-1;
   }
 
   .st-label {
@@ -385,36 +346,24 @@
 
   .labels {
     @apply label
-    mt-3.5
-    xl:mt-4
-    2xl:mt-5;
+    mt-3.5;
   }
 
   .input {
     @apply h-10
     w-full
     text-base
-    text-input
+    text-components-input
     rounded
     pl-2
-    xs:min-w-71
-    xl:text-xl
-    xl:h-11.5
-    2xl:text-1.75xl
-    2xl:h-12.5;
+    xs:min-w-71;
   }
 
   .actions {
     @apply flex
     gap-2
     px-2
-    mt-4
-    xl:px-2.5
-    xl:mt-4.5
-    xl:gap-2.5
-    2xl:px-3.5
-    2xl:mt-5.5
-    2xl:gap-3;
+    mt-4;
   }
 
   .btn-cancel-edit {
@@ -427,8 +376,8 @@
     @apply btn-action 
     w-3/5
     bg-gradient-to-r 
-    from-pink-fade 
-    to-yellow-fade;
+    from-fade-pink 
+    to-fade-yellow;
   }
 
   .modal-share {
@@ -440,9 +389,7 @@
     px-2.5
     py-4
     min-w-full
-    xs:min-w-max
-    xl:py-4.5
-    2xl:py-5;
+    xs:min-w-max;
   }
 
   .share-title {
@@ -451,48 +398,34 @@
 
   .share-content {
     @apply input-wrapper
-    gap-3
-    xl:gap-3.5
-    2xl:gap-4;
+    gap-3;
   }
 
   .copy-container {
     @apply flex
     items-center
-    gap-2
-    xl:w-104
-    xl:gap-2.5
-    2xl:w-118.5
-    2xl:gap-2.5;
+    gap-2;
   }
 
   .btn-copy {
     @apply h-10
     px-2.5
     rounded
-    bg-button
+    bg-components-button
     duration-200
     filter
     transform
     hover:brightness-110
-    active:scale-90
-    xl:h-11.5
-    xl:px-3
-    2xl:h-12.5
-    2xl:px-3.5;
+    active:scale-90;
   }
 
   .btn-copy.active {
-    @apply bg-pink-fade;
+    @apply bg-fade-pink;
   }
 
   .img-copy {
     @apply w-6
-    h-6
-    xl:w-7.5
-    xl:h-7.5
-    2xl:w-8.5
-    2xl:h-8.5;
+    h-6;
   }
 
   .btn-cancel-sharing {
@@ -515,22 +448,18 @@
     mb-4
     tracking-widest
     bg-gradient-to-r
-    from-pink-fade
-    to-yellow-fade
+    from-fade-pink
+    to-fade-yellow
     bg-clip-text
-    ml:text-6xl
-    ml:mb-5
-    sm:text-7xl
-    sm:mb-6
-    xl:text-7.5xl
-    2xl:text-7.75xl;
+    xs:text-6xl
+    lg:text-6.5xl;
 
     -webkit-text-fill-color: transparent;
   }
 
   .img-lost {
     @apply w-full
-    max-w-lg
+    max-w-sm
     max-h-full
     my-4
     mx-auto
@@ -542,12 +471,8 @@
     @apply text-center
     text-xl
     mt-4
-    ml:mt-5
-    ml:text-1.5xl
-    sm:text-2xl
-    sm:mt-6
-    xl:text-3xl
-    2xl:text-3.5xl;
+    xs:text-2xl
+    lg:text-2.5xl;
   }
   /* -- END -- */
 }

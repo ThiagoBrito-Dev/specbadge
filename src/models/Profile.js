@@ -1,11 +1,9 @@
 const client = require("../database/config");
 
 async function checkConnection() {
-  if (client.topology) {
-    if (client.topology.s.state === "connected") {
-      console.log("Connection OK");
-      return;
-    }
+  if (client.topology?.s.state == "connected") {
+    console.log("Connection OK");
+    return;
   }
 
   await client.connect();
