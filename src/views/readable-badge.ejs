@@ -37,10 +37,8 @@
                 alt="Ícone do GitHub"
                 class="img-github"
               />
-              <span>
-                <% if (hasData) { %><%= gitHubData.login %><% } else {
-                %>usuário<% } %>
-              </span>
+              <% if (hasData) { %><%= gitHubData.login %><% } else { %>usuário<%
+              } %>
             </a>
           </div>
           <p class="user-biography">
@@ -52,7 +50,7 @@
           <ul class="social-links-wrapper">
             <li class="social-link-container">
               <a
-                href="<% if (hasData) { %>https://youtube.com/<%= profileData.links.youtube %><% } else { %>#<% } %>"
+                href="<% if (hasData && profileData.links.youtube) { %>https://youtube.com/<%= profileData.links.youtube %><% } else { %>#<% } %>"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -65,7 +63,7 @@
             </li>
             <li class="social-link-container">
               <a
-                href="<% if (hasData) { %>https://instagram.com/<%= profileData.links.instagram %>/<% } else { %>#<% } %>"
+                href="<% if (hasData && profileData.links.instagram) { %>https://instagram.com/<%= profileData.links.instagram %>/<% } else { %>#<% } %>"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -78,7 +76,7 @@
             </li>
             <li class="social-link-container">
               <a
-                href="<% if (hasData) { %>https://facebook.com/<%= profileData.links.facebook %><% } else { %>#<% } %>"
+                href="<% if (hasData && profileData.links.facebook) { %>https://facebook.com/<%= profileData.links.facebook %><% } else { %>#<% } %>"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -91,7 +89,7 @@
             </li>
             <li class="social-link-container">
               <a
-                href="<% if (hasData) { %>https://twitter.com/<%= profileData.links.twitter %><% } else { %>#<% } %>"
+                href="<% if (hasData && profileData.links.twitter) { %>https://twitter.com/<%= profileData.links.twitter %><% } else { %>#<% } %>"
                 target="_blank"
                 rel="noreferrer noopener"
               >

@@ -786,7 +786,6 @@ video {
 .social-links-wrapper {
   display: flex;
   list-style-type: none;
-  justify-content: center;
   gap: 0.4375rem;
 }
 
@@ -798,6 +797,21 @@ video {
 /* -- END --
 
   * LOGIN PAGE */
+
+.config-container {
+  margin-top: 4rem;
+}
+
+@media (min-width: 640px) {
+  .config-container {
+    margin-top: 2.5rem;
+  }
+}
+
+.config-container {
+  display: flex;
+  gap: 0.4375rem;
+}
 
 .login-card {
   max-width: 28rem;
@@ -864,23 +878,6 @@ video {
 /* -- END -- 
   
   * BADGE PAGE */
-
-.config-wrapper {
-  margin-top: 4rem;
-}
-
-@media (min-width: 640px) {
-  .config-wrapper {
-    margin-top: 2.5rem;
-  }
-}
-
-.config-wrapper {
-  display: flex;
-  list-style-type: none;
-  justify-content: center;
-  gap: 0.4375rem;
-}
 
 .editable-badge-avatar {
   position: relative;

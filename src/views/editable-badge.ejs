@@ -9,7 +9,7 @@
     <main class="badge">
       <header class="badge-header">
         <div class="badge-band"></div>
-        <button id="shareBadge" class="btn-share">
+        <button type="button" class="btn-share" id="shareBadge">
           <img
             src="/images/share.svg"
             alt="Compartilhar crachá"
@@ -39,64 +39,67 @@
                 alt="Ícone do GitHub"
                 class="img-github"
               />
-              <span><%= gitHubData.login %></span>
+              <%= gitHubData.login %>
             </a>
           </div>
           <p class="user-biography"><%= gitHubData.bio %></p>
         </section>
-        <footer class="config-wrapper">
-          <div class="social-link-container">
-            <a
-              href="<% if (hasProfileData) { %>https://youtube.com/<%= profileData.links.youtube %><% } else { %>#<% } %>"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img
-                src="/images/youtube.svg"
-                alt="Ícone do YouTube"
-                class="img-social"
-              />
-            </a>
-          </div>
-          <div class="social-link-container">
-            <a
-              href="<% if (hasProfileData) { %>https://instagram.com/<%= profileData.links.instagram %>/<% } else { %>#<% } %>"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img
-                src="/images/instagram.svg"
-                alt="Ícone do Instagram"
-                class="img-social"
-              />
-            </a>
-          </div>
-          <div class="social-link-container">
-            <a
-              href="<% if (hasProfileData) { %>https://facebook.com/<%= profileData.links.facebook %><% } else { %>#<% } %>"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img
-                src="/images/facebook.svg"
-                alt="Ícone do Facebook"
-                class="img-social"
-              />
-            </a>
-          </div>
-          <div class="social-link-container">
-            <a
-              href="<% if (hasProfileData) { %>https://twitter.com/<%= profileData.links.twitter %><% } else { %>#<% } %>"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img
-                src="/images/twitter.svg"
-                alt="Ícone do Twitter"
-                class="img-social"
-              />
-            </a>
-          </div>
+        <footer class="config-container">
+          <ul class="social-links-wrapper">
+            <li class="social-link-container">
+              <a
+                href="<% if (hasProfileData && profileData.links.youtube) { %>https://youtube.com/<%= profileData.links.youtube %><% } else { %>#<% } %>"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img
+                  src="/images/youtube.svg"
+                  alt="Ícone do YouTube"
+                  class="img-social"
+                />
+              </a>
+            </li>
+            <li class="social-link-container">
+              <a
+                href="<% if (hasProfileData && profileData.links.instagram) { %>https://instagram.com/<%= profileData.links.instagram %>/<% } else { %>#<% } %>"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img
+                  src="/images/instagram.svg"
+                  alt="Ícone do Instagram"
+                  class="img-social"
+                />
+              </a>
+            </li>
+            <li class="social-link-container">
+              <a
+                href="<% if (hasProfileData && profileData.links.facebook) { %>https://facebook.com/<%= profileData.links.facebook %><% } else { %>#<% } %>"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img
+                  src="/images/facebook.svg"
+                  alt="Ícone do Facebook"
+                  class="img-social"
+                />
+              </a>
+            </li>
+            <li class="social-link-container">
+              <a
+                href="<% if (hasProfileData && profileData.links.twitter) { %>https://twitter.com/<%= profileData.links.twitter %><% } else { %>#<% } %>"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img
+                  src="/images/twitter.svg"
+                  alt="Ícone do Twitter"
+                  class="img-social"
+                />
+              </a>
+            </li>
+          </ul>
+
           <button type="button" id="editBadge" class="btn-edit">
             <img
               src="/images/edit.svg"

@@ -10,7 +10,8 @@
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   <title>
-    <%= pageName %> | SpecBadge<% if (hasEvent) { %> - <%= eventName %><% } %>
+    <%= pageName %> | SpecBadge<% if (hasEvent && eventName) { %> - <%=
+    eventName %><% } %>
   </title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />

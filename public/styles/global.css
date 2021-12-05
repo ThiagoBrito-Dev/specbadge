@@ -197,7 +197,6 @@
 
   .social-links-wrapper {
     @apply flex
-    justify-center
     gap-1.75
     list-none;
   }
@@ -209,6 +208,12 @@
   /* -- END --
 
   * LOGIN PAGE */
+  .config-container {
+    @apply badge-footer
+    flex
+    gap-1.75;
+  }
+
   .login-card {
     @apply max-w-md
     bg-primary
@@ -255,11 +260,6 @@
   /* -- END -- 
   
   * BADGE PAGE */
-  .config-wrapper {
-    @apply badge-footer
-    social-links-wrapper;
-  }
-
   .editable-badge-avatar {
     @apply relative
     mt-41.75
