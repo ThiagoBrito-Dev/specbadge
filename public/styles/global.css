@@ -142,8 +142,13 @@
 
   .readable-badge-avatar {
     @apply relative
-    mt-29
+    mt-28.75
     sm:mt-14.5;
+  }
+
+  .has-data {
+    @apply mt-38.25
+    sm:mt-21.25;
   }
 
   .img-avatar {

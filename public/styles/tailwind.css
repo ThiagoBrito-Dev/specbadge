@@ -707,12 +707,22 @@ video {
 
 .readable-badge-avatar {
   position: relative;
-  margin-top: 7.25rem;
+  margin-top: 7.1875rem;
 }
 
 @media (min-width: 640px) {
   .readable-badge-avatar {
     margin-top: 3.625rem;
+  }
+}
+
+.has-data {
+  margin-top: 9.5625rem;
+}
+
+@media (min-width: 640px) {
+  .has-data {
+    margin-top: 5.3125rem;
   }
 }
 

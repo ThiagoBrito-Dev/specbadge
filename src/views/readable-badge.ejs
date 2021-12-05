@@ -11,7 +11,9 @@
         <a href="/login" class="btn-login-redirect">Entrar</a>
       </header>
       <section class="badge-body">
-        <header class="readable-badge-avatar">
+        <header
+          class="readable-badge-avatar <% if (hasData) { %>has-data<% } %>"
+        >
           <img
             src="<% if (hasData) { %><%= gitHubData.avatar_url %><% } else { %>https://via.placeholder.com/160x184/e1e1e6/202024<% } %>"
             alt="<% if (hasData) { %><%= gitHubData.name %><% } else { %>Sua foto de perfil<% } %>"
