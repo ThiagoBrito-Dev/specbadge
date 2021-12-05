@@ -99,7 +99,6 @@
               </a>
             </li>
           </ul>
-
           <button type="button" id="editBadge" class="btn-edit">
             <img
               src="/images/edit.svg"
@@ -113,7 +112,7 @@
   </body>
 
   <div id="modalOverlay" class="modal-overlay">
-    <div id="modalEdit" class="modal-edit">
+    <div id="modalEdit" class="modal-edit" tabindex="-1">
       <form action="/badge" method="post">
         <fieldset>
           <legend class="fieldset-title">Dados do Crachá</legend>
@@ -202,7 +201,7 @@
         </fieldset>
       </form>
     </div>
-    <div id="modalShare" class="modal-share">
+    <div id="modalShare" class="modal-share" tabindex="-1">
       <h2 class="share-title">Compartilhar Crachá</h2>
 
       <div class="separator"></div>
