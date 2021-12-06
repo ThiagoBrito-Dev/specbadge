@@ -9,12 +9,13 @@
     <main class="badge">
       <header class="badge-header">
         <div class="badge-band"></div>
-        <button type="button" class="btn-share" id="shareBadge">
-          <img
-            src="/images/share.svg"
-            alt="Compartilhar crachá"
-            class="img-share"
-          />
+        <button
+          type="button"
+          id="shareBadge"
+          class="btn-share"
+          aria-label="Compartilhar crachá de espectador"
+        >
+          <img src="/images/share.svg" alt="" class="img-share" />
         </button>
       </header>
       <section class="badge-body">
@@ -34,11 +35,7 @@
               rel="noreferrer noopener"
               class="profile-link"
             >
-              <img
-                src="/images/github.svg"
-                alt="Ícone do GitHub"
-                class="img-github"
-              />
+              <img src="/images/github.svg" alt="GitHub" class="img-github" />
               <%= gitHubData.login %>
             </a>
           </div>
@@ -54,7 +51,7 @@
               >
                 <img
                   src="/images/youtube.svg"
-                  alt="Ícone do YouTube"
+                  alt="YouTube"
                   class="img-social"
                 />
               </a>
@@ -67,7 +64,7 @@
               >
                 <img
                   src="/images/instagram.svg"
-                  alt="Ícone do Instagram"
+                  alt="Instagram"
                   class="img-social"
                 />
               </a>
@@ -80,7 +77,7 @@
               >
                 <img
                   src="/images/facebook.svg"
-                  alt="Ícone do Facebook"
+                  alt="Facebook"
                   class="img-social"
                 />
               </a>
@@ -93,18 +90,19 @@
               >
                 <img
                   src="/images/twitter.svg"
-                  alt="Ícone do Twitter"
+                  alt="Twitter"
                   class="img-social"
                 />
               </a>
             </li>
           </ul>
-          <button type="button" id="editBadge" class="btn-edit">
-            <img
-              src="/images/edit.svg"
-              alt="Ícone de edição"
-              class="img-edit"
-            />
+          <button
+            type="button"
+            id="editBadge"
+            class="btn-edit"
+            aria-label="Editar crachá de espectador"
+          >
+            <img src="/images/edit.svg" alt="" class="img-edit" />
           </button>
         </footer>
       </section>
@@ -219,12 +217,13 @@
             class="input"
             readonly
           />
-          <button type="button" id="copyButton" class="btn-copy">
-            <img
-              src="/images/copy.svg"
-              alt="Copiar para área de transferência"
-              class="img-copy"
-            />
+          <button
+            type="button"
+            id="copyButton"
+            class="btn-copy"
+            aria-label="Copiar URL do crachá para a área de transferência"
+          >
+            <img src="/images/copy.svg" alt="" class="img-copy" />
           </button>
         </div>
         <button type="button" id="cancelSharing" class="btn-cancel-sharing">
