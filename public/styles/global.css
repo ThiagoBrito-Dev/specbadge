@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+  .default-ring {
+    @apply focus:outline-none
+    focus:ring-2
+    focus:ring-primary;
+  }
+
+  * {
+    @apply default-ring;
+  }
+
   html {
     @apply xl:text-125%
     2xl:text-150%;
@@ -20,6 +30,11 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-components-button 
     rounded-full;
+  }
+
+  ::selection {
+    @apply bg-fade-yellow
+    text-components-button;
   }
 
   .page {
@@ -70,11 +85,18 @@
     filter
     hover:scale-105
     hover:brightness-90
+    focus:ring-components-button
     xl:py-3;
   }
 
   .social-link-container {
     @apply hover:animate-finite-bounce;
+  }
+
+  .social-link {
+    @apply p-0.5
+    block
+    rounded;
   }
 
   .modal {
@@ -130,11 +152,12 @@
     duration-500
     hover:text-components-button
     hover:bg-utils-transparent
-    hover:shadow-inner;
+    hover:shadow-inner
+    focus:ring-fade-pink;
   }
 
   .badge-body {
-    @apply max-w-68
+    @apply max-w-69
     mx-auto
     text-center
     animate-swipe-down;
@@ -147,8 +170,8 @@
   }
 
   .has-data {
-    @apply mt-38.25
-    sm:mt-21.25;
+    @apply mt-35.75
+    sm:mt-19;
   }
 
   .img-avatar {
@@ -158,6 +181,10 @@
     object-cover;
 
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+
+  .img-avatar::selection {
+    @apply bg-fade-alt-yellow;
   }
 
   .identification {
@@ -173,16 +200,22 @@
     @apply flex
     items-center
     gap-2
+    px-1
     text-base
     w-max
     m-auto
     text-secondary
-    no-underline;
+    no-underline
+    rounded;
   }
 
   .img-github {
     @apply w-4
     h-4;
+  }
+
+  .img-github::selection {
+    @apply bg-fade-alt-pink;
   }
 
   .user-biography {
@@ -197,7 +230,8 @@
 
   .social-links-wrapper {
     @apply flex
-    gap-1.75
+    justify-center
+    gap-1
     list-none;
   }
 
@@ -205,13 +239,17 @@
     @apply w-12
     h-12;
   }
+
+  .img-social::selection {
+    @apply bg-fade-alt-pink;
+  }
   /* -- END --
 
   * LOGIN PAGE */
   .config-container {
     @apply badge-footer
     flex
-    gap-1.75;
+    gap-1;
   }
 
   .login-card {
@@ -247,7 +285,8 @@
     py-4
     bg-tertiary
     duration-500
-    hover:bg-components-page;
+    hover:bg-components-page
+    focus:ring-fade-pink;
   }
 
   .btn-icon {
@@ -257,21 +296,26 @@
     w-8
     h-8;
   }
+
+  .btn-icon::selection {
+    @apply bg-fade-alt-pink;
+  }
   /* -- END -- 
   
   * BADGE PAGE */
   .editable-badge-avatar {
     @apply relative
-    mt-41.75
-    sm:mt-21.25;
+    mt-39
+    sm:mt-19;
   }
 
   .btn-share {
     @apply btn-header
-    bg-utils-transparent
+    rounded
     transform
     duration-500
-    hover:scale-110;
+    hover:scale-110
+    focus:ring-components-button;
   }
 
   .img-share {
@@ -279,8 +323,14 @@
     h-7.5;
   }
 
+  .img-share::selection {
+    @apply bg-fade-alt-yellow;
+  }
+
   .btn-edit {
-    @apply social-link-container;
+    @apply social-link-container
+    rounded
+    p-0.5;
   }
 
   .img-edit {
@@ -323,7 +373,8 @@
 
   .modal-edit.active {
     @apply modal
-    sm:min-w-101.25;
+    sm:min-w-101.25
+    focus:ring-fade-pink;
   }
 
   .fieldset-title {
@@ -339,18 +390,14 @@
     px-2;
   }
 
-  .label {
+  .st-label {
     @apply text-base
     text-quaternary
     mb-1;
   }
 
-  .st-label {
-    @apply label;
-  }
-
   .labels {
-    @apply label
+    @apply st-label
     mt-3.5;
   }
 
@@ -359,8 +406,11 @@
     w-full
     text-base
     text-components-input
+    caret-components-button
     rounded
     pl-2
+    duration-500
+    focus:ring-components-button
     xs:min-w-71;
   }
 
@@ -394,6 +444,7 @@
     px-2.5
     py-4
     min-w-full
+    focus:ring-fade-pink
     xs:min-w-max;
   }
 
@@ -421,16 +472,22 @@
     filter
     transform
     hover:brightness-110
+    focus:ring-fade-pink
     active:scale-90;
   }
 
   .btn-copy.active {
-    @apply bg-fade-pink;
+    @apply bg-fade-pink
+    focus:ring-components-button;
   }
 
   .img-copy {
     @apply w-6
     h-6;
+  }
+
+  .btn-copy:not(.active) .img-copy::selection {
+    @apply bg-fade-alt-pink;
   }
 
   .btn-cancel-sharing {
@@ -462,6 +519,10 @@
     -webkit-text-fill-color: transparent;
   }
 
+  .not-found-code::selection {
+    -webkit-text-fill-color: initial;
+  }
+
   .img-lost {
     @apply w-full
     max-w-sm
@@ -470,6 +531,10 @@
     mx-auto
     animate-pop
     md:mb-5;
+  }
+
+  .img-lost::selection {
+    @apply bg-fade-alt-yellow;
   }
 
   .not-found-message {

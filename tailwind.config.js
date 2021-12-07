@@ -22,6 +22,8 @@ module.exports = {
       fade: {
         yellow: "#f7b125",
         pink: "#fd2875",
+        "alt-pink": "rgba(253, 40, 117, 0.5)",
+        "alt-yellow": "rgba(247, 177, 37, 0.35)",
       },
       components: {
         page: "#121216",
@@ -79,7 +81,8 @@ module.exports = {
         101.25: "25.3125rem",
       },
       maxWidth: {
-        68: "16.75rem",
+        68: "17rem",
+        69: "17.25rem",
       },
       spacing: {
         hpx: "0.5px", // half a pixel
@@ -88,13 +91,13 @@ module.exports = {
         7.5: "1.875rem",
         14.5: "3.625rem",
         15: "3.75rem",
-        21.25: "5.3125rem",
+        19: "4.75rem",
         28.75: "7.1875rem",
         "-35": "-8.75rem",
         35: "8.75rem",
-        38.25: "9.5625rem",
+        35.75: "8.9375rem",
+        39: "9.75rem",
         41: "10.25rem",
-        41.75: "10.4375rem",
         42: "10.5rem",
         46: "11.515rem",
         94: "23.5rem",
