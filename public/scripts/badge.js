@@ -11,9 +11,40 @@ function handleModalFocus(modal) {
   lastFocusedElement.focus();
 }
 
+function createKeyboardTrap(event) {
+  if (event.key == "Tab") {
+    const focusedElementId = document.activeElement.getAttribute("id");
+
+    if (event.shiftKey) {
+      if (
+        focusedElementId.includes("modal") ||
+        focusedElementId == "eventName" ||
+        focusedElementId == "shareLink"
+      ) {
+        event.preventDefault();
+      }
+    } else {
+      if (
+        focusedElementId == "saveEdit" ||
+        focusedElementId == "cancelSharing"
+      ) {
+        event.preventDefault();
+      }
+    }
+  }
+}
+
 function toggleEditModalState() {
   modalOverlay.classList.toggle("active");
   modalEdit.classList.toggle("active");
+
+  if (modalEdit.classList.value.includes("active")) {
+    document.body.addEventListener("keydown", createKeyboardTrap, false);
+    // According to MDN, useCapture is mandatory in some browsers, so I've explicitly set
+    // it for accessibility reasons.
+  } else {
+    document.body.removeEventListener("keydown", createKeyboardTrap, false);
+  }
 
   handleModalFocus(modalEdit);
 }
@@ -21,6 +52,12 @@ function toggleEditModalState() {
 function toggleShareModalState() {
   modalOverlay.classList.toggle("active");
   modalShare.classList.toggle("active");
+
+  if (modalShare.classList.value.includes("active")) {
+    document.body.addEventListener("keydown", createKeyboardTrap, false);
+  } else {
+    document.body.removeEventListener("keydown", createKeyboardTrap, false);
+  }
 
   if (copyButton.classList.value.includes("active")) {
     copyButton.classList.remove("active");
