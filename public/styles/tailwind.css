@@ -744,6 +744,19 @@ video {
 }
 
 .btn-login-redirect {
+  transition-property: background-color, border-color, color, fill, stroke,
+    box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.btn-login-redirect:focus {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.btn-login-redirect {
   transition-duration: 500ms;
 }
 
@@ -951,6 +964,9 @@ video {
 }
 
 .btn-login {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   transition-duration: 500ms;
 }
 
@@ -1026,6 +1042,9 @@ video {
 }
 
 .btn-share {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   transition-duration: 500ms;
 }
 
@@ -1183,10 +1202,6 @@ video {
   --tw-ring-color: rgba(39, 39, 41, var(--tw-ring-opacity));
 }
 
-.input {
-  transition-duration: 500ms;
-}
-
 @media (min-width: 375px) {
   .input {
     min-width: 17.75rem;
@@ -1258,6 +1273,9 @@ video {
 }
 
 .btn-cancel-edit {
+  transition-property: filter, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   transition-duration: 500ms;
 }
 
@@ -1331,6 +1349,9 @@ video {
 }
 
 .btn-save {
+  transition-property: filter, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   transition-duration: 500ms;
 }
 
@@ -1464,6 +1485,9 @@ video {
 }
 
 .btn-copy {
+  transition-property: filter, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   transition-duration: 200ms;
 }
 
@@ -1547,6 +1571,9 @@ video {
 }
 
 .btn-cancel-sharing {
+  transition-property: filter, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   transition-duration: 500ms;
 }
 

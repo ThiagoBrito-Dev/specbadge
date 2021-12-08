@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  .default-ring {
-    @apply focus:outline-none
-    focus:ring-2
-    focus:ring-primary;
-  }
-
   * {
     @apply default-ring;
   }
@@ -48,6 +42,12 @@
     bg-components-page;
   }
 
+  .default-ring {
+    @apply focus:outline-none
+    focus:ring-2
+    focus:ring-primary;
+  }
+
   .has-img-background {
     @apply sm:bg-desktop-page
     sm:bg-cover
@@ -78,6 +78,7 @@
     leading-none
     font-medium
     rounded-md
+    transition-filter-transform
     duration-500
     px-4
     py-3.5
@@ -149,11 +150,13 @@
     py-2
     text-lg
     bg-components-button
-    duration-500
+    transition-colors-shadow
     hover:text-components-button
     hover:bg-utils-transparent
     hover:shadow-inner
-    focus:ring-fade-pink;
+    focus:transition-colors
+    focus:ring-fade-pink
+    duration-500;
   }
 
   .badge-body {
@@ -284,6 +287,7 @@
     text-xl
     py-4
     bg-tertiary
+    transition-colors
     duration-500
     hover:bg-components-page
     focus:ring-fade-pink;
@@ -313,6 +317,7 @@
     @apply btn-header
     rounded
     transform
+    transition-transform
     duration-500
     hover:scale-110
     focus:ring-components-button;
@@ -409,7 +414,6 @@
     caret-components-button
     rounded
     pl-2
-    duration-500
     focus:ring-components-button
     xs:min-w-71;
   }
@@ -422,13 +426,13 @@
   }
 
   .btn-cancel-edit {
-    @apply btn-action 
-    w-2/5 
+    @apply btn-action
+    w-2/5
     bg-secondary;
   }
 
   .btn-save {
-    @apply btn-action 
+    @apply btn-action
     w-3/5
     bg-gradient-to-r 
     from-fade-pink 
@@ -468,6 +472,7 @@
     px-2.5
     rounded
     bg-components-button
+    transition-filter-transform
     duration-200
     filter
     transform

@@ -102,6 +102,11 @@ module.exports = {
         46: "11.515rem",
         94: "23.5rem",
       },
+      transitionProperty: {
+        "filter-transform": "filter, transform",
+        "colors-shadow":
+          "background-color, border-color, color, fill, stroke, box-shadow",
+      },
     },
   },
   variants: {
@@ -110,6 +115,7 @@ module.exports = {
       animation: ["hover"],
       brightness: ["hover"],
       scale: ["active"],
+      transitionProperty: ["hover", "focus"],
     },
   },
   plugins: [],
