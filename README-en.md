@@ -90,6 +90,7 @@ $ yarn watch
 #### General
 
 - [JavaScript](https://devdocs.io/javaScript/)
+- [Gulp](https://gulpjs.com/)
 
 #### 💻 Frontend
 
