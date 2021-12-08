@@ -81,12 +81,10 @@ module.exports = {
         101.25: "25.3125rem",
       },
       maxWidth: {
-        68: "17rem",
         69: "17.25rem",
       },
       spacing: {
         hpx: "0.5px", // half a pixel
-        1.75: "0.4375rem",
         4.5: "1.125rem",
         7.5: "1.875rem",
         14.5: "3.625rem",
@@ -115,7 +113,7 @@ module.exports = {
       animation: ["hover"],
       brightness: ["hover"],
       scale: ["active"],
-      transitionProperty: ["hover", "focus"],
+      transitionProperty: ["focus"],
     },
   },
   plugins: [],

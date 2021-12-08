@@ -1,3 +1,9 @@
+editBadge.addEventListener("click", toggleEditModalState);
+cancelEdit.addEventListener("click", toggleEditModalState);
+shareBadge.addEventListener("click", toggleShareModalState);
+cancelSharing.addEventListener("click", toggleShareModalState);
+copyButton.addEventListener("click", copyBadgeLinkToClipboard);
+
 let lastFocusedElement;
 
 function handleModalFocus(modal) {
@@ -11,7 +17,49 @@ function handleModalFocus(modal) {
   lastFocusedElement.focus();
 }
 
-function createKeyboardTrap(event) {
+function resetCopyButtonState() {
+  if (copyButton.classList.value.includes("active")) {
+    copyButton.classList.remove("active");
+  }
+}
+
+function handleModalListeners(modal) {
+  if (modal.classList.value.includes("active")) {
+    document.body.onkeydown = (event) => {
+      createFocusTrap(event);
+      closeModalOnEscape(event, modal);
+    };
+  } else {
+    document.body.onkeydown = null;
+  }
+}
+
+function toggleEditModalState() {
+  modalOverlay.classList.toggle("active");
+  modalEdit.classList.toggle("active");
+
+  handleModalFocus(modalEdit);
+  handleModalListeners(modalEdit);
+}
+
+function toggleShareModalState() {
+  modalOverlay.classList.toggle("active");
+  modalShare.classList.toggle("active");
+
+  handleModalFocus(modalShare);
+  resetCopyButtonState();
+  handleModalListeners(modalShare);
+}
+
+function copyBadgeLinkToClipboard() {
+  const copyInput = copyButton.previousElementSibling;
+
+  navigator.clipboard.writeText(copyInput.value);
+  copyButton.classList.add("active");
+}
+
+function createFocusTrap(event) {
+  console.log("Chamou");
   if (event.key == "Tab") {
     const focusedElementId = document.activeElement.getAttribute("id");
 
@@ -34,47 +82,12 @@ function createKeyboardTrap(event) {
   }
 }
 
-function toggleEditModalState() {
-  modalOverlay.classList.toggle("active");
-  modalEdit.classList.toggle("active");
+function closeModalOnEscape({ key }, modal) {
+  console.log("Chamou aqui");
+  if (key == "Escape") {
+    modalOverlay.classList.remove("active");
+    modal.classList.remove("active");
 
-  if (modalEdit.classList.value.includes("active")) {
-    document.body.addEventListener("keydown", createKeyboardTrap, false);
-    // According to MDN, useCapture is mandatory in some browsers, so I've explicitly set
-    // it for accessibility reasons.
-  } else {
-    document.body.removeEventListener("keydown", createKeyboardTrap, false);
+    resetCopyButtonState();
   }
-
-  handleModalFocus(modalEdit);
 }
-
-function toggleShareModalState() {
-  modalOverlay.classList.toggle("active");
-  modalShare.classList.toggle("active");
-
-  if (modalShare.classList.value.includes("active")) {
-    document.body.addEventListener("keydown", createKeyboardTrap, false);
-  } else {
-    document.body.removeEventListener("keydown", createKeyboardTrap, false);
-  }
-
-  if (copyButton.classList.value.includes("active")) {
-    copyButton.classList.remove("active");
-  }
-
-  handleModalFocus(modalShare);
-}
-
-editBadge.addEventListener("click", toggleEditModalState);
-cancelEdit.addEventListener("click", toggleEditModalState);
-
-shareBadge.addEventListener("click", toggleShareModalState);
-cancelSharing.addEventListener("click", toggleShareModalState);
-
-copyButton.addEventListener("click", () => {
-  const copyInput = copyButton.previousElementSibling;
-
-  navigator.clipboard.writeText(copyInput.value);
-  copyButton.classList.add("active");
-});
