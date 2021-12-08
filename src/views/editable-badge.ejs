@@ -111,131 +111,133 @@
         </footer>
       </section>
     </main>
-  </body>
 
-  <div id="modalOverlay" class="modal-overlay">
-    <div id="modalEdit" class="modal-edit" tabindex="-1">
-      <form action="/badge" method="post">
-        <fieldset>
-          <legend class="fieldset-title">Dados do Crachá</legend>
+    <div id="modalOverlay" class="modal-overlay">
+      <div id="modalEdit" class="modal-edit" tabindex="-1">
+        <form action="/badge" method="post">
+          <fieldset>
+            <legend class="fieldset-title">Dados do Crachá</legend>
 
-          <div class="separator"></div>
+            <div class="separator"></div>
 
-          <input type="hidden" name="gitHubId" value="<%= gitHubData.id %>" />
-          <input
-            type="hidden"
-            name="userName"
-            value="<%= gitHubData.login %>"
-          />
+            <input type="hidden" name="gitHubId" value="<%= gitHubData.id %>" />
+            <input
+              type="hidden"
+              name="userName"
+              value="<%= gitHubData.login %>"
+            />
 
-          <div class="input-wrapper">
-            <label for="eventName" class="st-label"
-              >Você está participando de qual evento atualmente?</label
+            <div class="input-wrapper">
+              <label for="eventName" class="st-label"
+                >Você está participando de qual evento atualmente?</label
+              >
+              <input
+                type="text"
+                name="eventName"
+                value="<% if (hasProfileData) { %><%=profileData.event%><% } %>"
+                id="eventName"
+                class="input"
+                placeholder="Nome do evento"
+              />
+            </div>
+            <div class="input-wrapper">
+              <label for="youtubeLink" class="labels"
+                >Qual é o nome do seu canal do YouTube?</label
+              >
+              <input
+                type="text"
+                name="youtubeLink"
+                value="<% if (hasProfileData) { %><%= profileData.links.youtube %><% } %>"
+                id="youtubeLink"
+                class="input"
+                placeholder="youtube.com/"
+              />
+            </div>
+            <div class="input-wrapper">
+              <label for="instagramLink" class="labels"
+                >Qual é o seu usuário do Instagram?</label
+              >
+              <input
+                type="text"
+                name="instagramLink"
+                value="<% if (hasProfileData) { %><%= profileData.links.instagram %><% } %>"
+                id="instagramLink"
+                class="input"
+                placeholder="instagram.com/"
+              />
+            </div>
+            <div class="input-wrapper">
+              <label for="facebookLink" class="labels"
+                >Qual é o seu perfil do Facebook?</label
+              >
+              <input
+                type="text"
+                name="facebookLink"
+                value="<% if (hasProfileData) { %><%= profileData.links.facebook %><% } %>"
+                id="facebookLink"
+                class="input"
+                placeholder="facebook.com/"
+              />
+            </div>
+            <div class="input-wrapper">
+              <label for="twitterLink" class="labels"
+                >Qual é o nome do seu usuário do Twitter?</label
+              >
+              <input
+                type="text"
+                name="twitterLink"
+                value="<% if (hasProfileData) { %><%= profileData.links.twitter %><% } %>"
+                id="twitterLink"
+                class="input"
+                placeholder="twitter.com/"
+              />
+            </div>
+
+            <div class="actions">
+              <button type="button" id="cancelEdit" class="btn-cancel-edit">
+                Cancelar
+              </button>
+              <button type="submit" id="saveEdit" class="btn-save">
+                Salvar
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div id="modalShare" class="modal-share" tabindex="-1">
+        <h2 class="share-title">Compartilhar Crachá</h2>
+
+        <div class="separator"></div>
+
+        <div class="share-content">
+          <div class="copy-container">
+            <label for="shareLink" class="sr-only"
+              >Copie o link abaixo para compartilhar o seu crachá de
+              espectador</label
             >
             <input
               type="text"
-              name="eventName"
-              value="<% if (hasProfileData) { %><%=profileData.event%><% } %>"
-              id="eventName"
+              value="http://localhost:3000/badges/<%= gitHubData.login %>"
+              id="shareLink"
               class="input"
-              placeholder="Nome do evento"
+              readonly
             />
-          </div>
-          <div class="input-wrapper">
-            <label for="youtubeLink" class="labels"
-              >Qual é o nome do seu canal do YouTube?</label
+            <button
+              type="button"
+              id="copyButton"
+              class="btn-copy"
+              aria-label="Copiar URL do crachá para a área de transferência"
             >
-            <input
-              type="text"
-              name="youtubeLink"
-              value="<% if (hasProfileData) { %><%= profileData.links.youtube %><% } %>"
-              id="youtubeLink"
-              class="input"
-              placeholder="youtube.com/"
-            />
-          </div>
-          <div class="input-wrapper">
-            <label for="instagramLink" class="labels"
-              >Qual é o seu usuário do Instagram?</label
-            >
-            <input
-              type="text"
-              name="instagramLink"
-              value="<% if (hasProfileData) { %><%= profileData.links.instagram %><% } %>"
-              id="instagramLink"
-              class="input"
-              placeholder="instagram.com/"
-            />
-          </div>
-          <div class="input-wrapper">
-            <label for="facebookLink" class="labels"
-              >Qual é o seu perfil do Facebook?</label
-            >
-            <input
-              type="text"
-              name="facebookLink"
-              value="<% if (hasProfileData) { %><%= profileData.links.facebook %><% } %>"
-              id="facebookLink"
-              class="input"
-              placeholder="facebook.com/"
-            />
-          </div>
-          <div class="input-wrapper">
-            <label for="twitterLink" class="labels"
-              >Qual é o nome do seu usuário do Twitter?</label
-            >
-            <input
-              type="text"
-              name="twitterLink"
-              value="<% if (hasProfileData) { %><%= profileData.links.twitter %><% } %>"
-              id="twitterLink"
-              class="input"
-              placeholder="twitter.com/"
-            />
-          </div>
-
-          <div class="actions">
-            <button type="button" id="cancelEdit" class="btn-cancel-edit">
-              Cancelar
+              <img src="/images/copy.svg" alt="" class="img-copy" />
             </button>
-            <button type="submit" id="saveEdit" class="btn-save">Salvar</button>
           </div>
-        </fieldset>
-      </form>
-    </div>
-    <div id="modalShare" class="modal-share" tabindex="-1">
-      <h2 class="share-title">Compartilhar Crachá</h2>
-
-      <div class="separator"></div>
-
-      <div class="share-content">
-        <div class="copy-container">
-          <label for="shareLink" class="sr-only"
-            >Copie o link abaixo para compartilhar o seu crachá de
-            espectador</label
-          >
-          <input
-            type="text"
-            value="http://localhost:3000/badges/<%= gitHubData.login %>"
-            id="shareLink"
-            class="input"
-            readonly
-          />
-          <button
-            type="button"
-            id="copyButton"
-            class="btn-copy"
-            aria-label="Copiar URL do crachá para a área de transferência"
-          >
-            <img src="/images/copy.svg" alt="" class="img-copy" />
+          <button type="button" id="cancelSharing" class="btn-cancel-sharing">
+            Cancelar
           </button>
         </div>
-        <button type="button" id="cancelSharing" class="btn-cancel-sharing">
-          Cancelar
-        </button>
       </div>
     </div>
-  </div>
 
-  <script src="/scripts/badge.js"></script>
+    <script src="/scripts/badge.js"></script>
+  </body>
 </html>
