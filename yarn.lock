@@ -841,6 +841,11 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
+csp-header@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/csp-header/-/csp-header-5.0.0.tgz#eb2d503190af251087c4e24a8ab1915960212f1c"
+  integrity sha512-LpX/S65JxI9ks3dPfQS4XcCKLcAipSQenjZFYncWQs+u1O5hmP8GrD1itc7w5MTgce3BpWlC/00Qx/vJlt7FMQ==
+
 css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
@@ -1175,6 +1180,14 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   integrity sha1-l+gBqgUt8CRU3kawK/YhZCzchQI=
   dependencies:
     homedir-polyfill "^1.0.1"
+
+express-csp-header@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/express-csp-header/-/express-csp-header-5.0.0.tgz#05b0cedce7d5059e949a27fd1bba1d1f038643cd"
+  integrity sha512-4TZUFTvP3APVCxiSZ9Rd/AaTpmI69c9DSjbk47hO40EYGnjJWDa9EqOipA83Wd/7DnnoQqe4iT6OdOU73PCH9Q==
+  dependencies:
+    csp-header "^5.0.0"
+    psl "1.8.0"
 
 express-session@^1.17.2:
   version "1.17.2"
@@ -3143,6 +3156,11 @@ proxy-addr@~2.0.5:
   dependencies:
     forwarded "0.2.0"
     ipaddr.js "1.9.1"
+
+psl@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/psl/-/psl-1.8.0.tgz#9326f8bcfb013adcc005fdff056acce020e51c24"
+  integrity sha512-RIdOzyoavK+hA18OGGWDqUTsCLhtA7IcZ/6NCs4fFJaHBDab+pDDmDIByWFRQJq2Cd7r1OoQxBGKOaztq+hjIQ==
 
 pstree.remy@^1.1.8:
   version "1.1.8"

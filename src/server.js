@@ -1,4 +1,5 @@
 const express = require("express");
+const { expressCspHeader, SELF } = require("express-csp-header");
 const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -14,6 +15,16 @@ const weekInMs = 1000 * 60 * 60 * 24 * 7;
 
 server.set("view engine", "ejs");
 server.set("views", path.join(__dirname, "views"));
+server.use(
+  expressCspHeader({
+    directives: {
+      "default-src": [SELF],
+      "font-src": ["https://*"],
+      "img-src": [SELF, "https://*"],
+      "style-src": [SELF, "https://*"],
+    },
+  })
+);
 server.use(express.static("public"));
 server.use(express.urlencoded({ extended: true }));
 server.use(
