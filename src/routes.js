@@ -11,8 +11,8 @@ router.get("/badge", BadgeController.show);
 router.post("/badge", BadgeController.save);
 router.get("/badges/:user", SearchController.show);
 
-// the declaration bellow will only be accessed when the route that the user is trying to
-// reach does not exist in the app. [Maybe there are better ways to do this]
-router.get(/\/*/, ErrorController.show);
+// the declaration below will only be accessed when the route that the user is trying to
+// reach does not exist in the application. [Maybe there are better ways to do this]
+router.get(/^((?!robots\.txt).)*$/, ErrorController.show);
 
 module.exports = router;
