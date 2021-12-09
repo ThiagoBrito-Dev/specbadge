@@ -103,6 +103,7 @@ $ yarn watch
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [Express.js](https://expressjs.com/pt-br/)
 - [MongoDB](https://docs.mongodb.com/drivers/node/current/)
+- [express-csp-header](https://www.npmjs.com/package/express-csp-header)
 - [node-fetch](https://www.npmjs.com/package/node-fetch)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [connect-mongo](https://www.npmjs.com/package/connect-mongo)
