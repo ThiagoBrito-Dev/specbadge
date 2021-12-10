@@ -18,7 +18,8 @@
     "express-csp-header": "^5.0.0",
     "express-session": "^1.17.2",
     "mongodb": "^4.2.0",
-    "node-fetch": "2.0"
+    "node-fetch": "2.0",
+    "redis": "^4.0.0"
   },
   "scripts": {
     "init-db": "node ./src/database/init.js",

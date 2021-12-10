@@ -1,23 +1,13 @@
-const client = require("../database/config");
-
-async function checkConnection() {
-  if (client.topology?.s.state == "connected") {
-    console.log("Connection OK");
-    return;
-  }
-
-  await client.connect();
-  console.log("Connecting...");
-}
+const { mongoClient, redisClient } = require("../database/config");
 
 module.exports = {
   async get(comparisonData, getByUserName = false) {
     let userProfile;
 
     try {
-      await checkConnection();
+      await manageConnections();
 
-      const database = client.db("specbadge");
+      const database = mongoClient.db("specbadge");
       const profiles = database.collection("profiles");
 
       if (getByUserName) {
@@ -35,9 +25,9 @@ module.exports = {
   },
   async create(data) {
     try {
-      checkConnection();
+      manageConnections();
 
-      const database = client.db("specbadge");
+      const database = mongoClient.db("specbadge");
       const profiles = database.collection("profiles");
       await profiles.insertOne(data);
     } catch (error) {
@@ -48,9 +38,9 @@ module.exports = {
   },
   async update(data) {
     try {
-      checkConnection();
+      manageConnections();
 
-      const database = client.db("specbadge");
+      const database = mongoClient.db("specbadge");
       const profiles = database.collection("profiles");
       await profiles.updateOne(
         { github_id: data.github_id },

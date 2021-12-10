@@ -1,4 +1,5 @@
 const { MongoClient } = require("mongodb");
+const { createClient } = require("redis");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: ".env.local" });
@@ -18,6 +19,14 @@ const cluster = fixedEncodeURIComponent(process.env.CLUSTER_NAME);
 
 const uri = `mongodb+srv://${user}:${password}@${cluster}.2svbf.mongodb.net/specbadge?retryWrites=true&w=majority`;
 const options = { appName: "specbadge", minPoolSize: 25 };
-const client = new MongoClient(uri, options);
 
-module.exports = client;
+const mongoClient = new MongoClient(uri, options);
+const redisClient = createClient();
+
+redisClient.on("error", (error) => {
+  console.log(
+    `Unfortunately, the following error occurred with redisClient: ${error.message}`
+  );
+});
+
+module.exports = { mongoClient, redisClient };

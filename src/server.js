@@ -3,7 +3,8 @@ const { expressCspHeader, SELF } = require("express-csp-header");
 const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-const client = require("./database/config");
+const { mongoClient } = require("./database/config");
+const dbUtils = require("./utils/database");
 const router = require("./routes");
 
 if (process.env.NODE_ENV !== "production") {
@@ -34,10 +35,11 @@ server.use(
     resave: false,
     cookie: { maxAge: weekInMs },
     store: MongoStore.create({
-      clientPromise: client.connect(),
+      clientPromise: mongoClient.connect(),
     }),
   })
 );
+dbUtils.connectToRedis();
 server.use(router);
 
 server.listen(3000, () => {
