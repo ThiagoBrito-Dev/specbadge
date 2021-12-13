@@ -1,18 +1,28 @@
 const { mongoClient, redisClient } = require("../database/config");
+const { manageConnections, getSerializedData } = require("../utils/database");
 
 module.exports = {
-  async get(comparisonData, getByUserName = false) {
+  async get(comparisonData, getIdFromUserName = false) {
     let userProfile;
 
     try {
       await manageConnections();
 
-      const database = mongoClient.db("specbadge");
-      const profiles = database.collection("profiles");
+      if (getIdFromUserName) {
+        // comparisonData = username
+        comparisonData = await redisClient.sMembers(
+          `username:${comparisonData}`
+        );
+      }
 
-      if (getByUserName) {
-        userProfile = await profiles.findOne({ user: comparisonData });
-      } else {
+      // comparisonData = id
+      userProfile = JSON.parse(
+        await redisClient.hGet(`user:${comparisonData}`, "profile")
+      );
+
+      if (!userProfile) {
+        const database = mongoClient.db("specbadge");
+        const profiles = database.collection("profiles");
         userProfile = await profiles.findOne({ github_id: comparisonData });
       }
     } catch (error) {
@@ -25,7 +35,7 @@ module.exports = {
   },
   async create(data) {
     try {
-      manageConnections();
+      await manageConnections();
 
       const database = mongoClient.db("specbadge");
       const profiles = database.collection("profiles");
@@ -38,7 +48,7 @@ module.exports = {
   },
   async update(data) {
     try {
-      manageConnections();
+      await manageConnections();
 
       const database = mongoClient.db("specbadge");
       const profiles = database.collection("profiles");
@@ -55,6 +65,20 @@ module.exports = {
           },
         }
       );
+    } catch (error) {
+      console.log(
+        `Unfortunately, the following error occurred during the connection: ${error.message}`
+      );
+    }
+  },
+  async updateCache(data) {
+    try {
+      await manageConnections();
+
+      const newData = getSerializedData(data);
+
+      await redisClient.hSet(`user:${data.github_id}`, "profile", newData);
+      await redisClient.sAdd(`username:${data.user}`, String(data.github_id));
     } catch (error) {
       console.log(
         `Unfortunately, the following error occurred during the connection: ${error.message}`

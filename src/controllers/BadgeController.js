@@ -53,6 +53,7 @@ module.exports = {
     };
     const userProfile = await Profile.get(data.github_id);
 
+    await Profile.updateCache(data);
     if (userProfile) {
       await Profile.update(data);
     } else {

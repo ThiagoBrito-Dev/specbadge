@@ -1,4 +1,5 @@
 const { mongoClient, redisClient } = require("../database/config");
+const serialize = require("serialize-javascript");
 
 module.exports = {
   async connectToRedis() {
@@ -21,5 +22,8 @@ module.exports = {
       console.log("Connecting with Redis...");
       await redisClient.connect();
     }
+  },
+  getSerializedData(data) {
+    return serialize(data, { space: 2, isJSON: true });
   },
 };
