@@ -4,7 +4,7 @@ const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const { mongoClient } = require("./database/config");
-const dbUtils = require("./utils/database");
+const { connectToRedis } = require("./utils/database");
 const router = require("./routes");
 
 if (process.env.NODE_ENV !== "production") {
@@ -39,8 +39,8 @@ server.use(
     }),
   })
 );
-dbUtils.connectToRedis();
 server.use(router);
+connectToRedis();
 
 server.listen(3000, () => {
   console.log("Server is running at <http://localhost:3000>");

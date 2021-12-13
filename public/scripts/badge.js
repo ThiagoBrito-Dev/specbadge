@@ -59,7 +59,6 @@ function copyBadgeLinkToClipboard() {
 }
 
 function createFocusTrap(event) {
-  console.log("Chamou");
   if (event.key == "Tab") {
     const focusedElementId = document.activeElement.getAttribute("id");
 
@@ -83,7 +82,6 @@ function createFocusTrap(event) {
 }
 
 function closeModalOnEscape({ key }, modal) {
-  console.log("Chamou aqui");
   if (key == "Escape") {
     modalOverlay.classList.remove("active");
     modal.classList.remove("active");

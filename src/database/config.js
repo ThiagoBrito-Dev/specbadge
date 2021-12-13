@@ -18,7 +18,7 @@ const password = fixedEncodeURIComponent(process.env.DATABASE_USER_PASSWORD);
 const cluster = fixedEncodeURIComponent(process.env.CLUSTER_NAME);
 
 const uri = `mongodb+srv://${user}:${password}@${cluster}.2svbf.mongodb.net/specbadge?retryWrites=true&w=majority`;
-const options = { appName: "specbadge", minPoolSize: 25 };
+const options = { appName: "specbadge", minPoolSize: 10 };
 
 const mongoClient = new MongoClient(uri, options);
 const redisClient = createClient();
