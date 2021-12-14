@@ -422,7 +422,7 @@
     @apply flex
     gap-2
     px-2
-    mt-4;
+    mt-4.5;
   }
 
   .btn-cancel-edit {
