@@ -413,9 +413,9 @@
     text-components-input
     caret-components-button
     rounded
-    pl-2
+    px-2
     focus:ring-components-button
-    xs:min-w-71;
+    xs:min-w-70.5;
   }
 
   .actions {

@@ -54,8 +54,10 @@ function toggleShareModalState() {
 function copyBadgeLinkToClipboard() {
   const copyInput = copyButton.previousElementSibling;
 
-  navigator.clipboard.writeText(copyInput.value);
-  copyButton.classList.add("active");
+  if (copyInput.value.includes("http")) {
+    navigator.clipboard.writeText(copyInput.value);
+    copyButton.classList.add("active");
+  }
 }
 
 function createFocusTrap(event) {

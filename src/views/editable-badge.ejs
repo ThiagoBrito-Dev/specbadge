@@ -217,7 +217,7 @@
             >
             <input
               type="text"
-              value="http://localhost:3000/badges/<%= gitHubData.login %>"
+              value="<% if (hasProfileData) { %>http://localhost:3000/badges/<%= gitHubData.login %><% } else { %>Preencha os dados do seu crachá para compartilhá-lo!<% } %>"
               id="shareLink"
               class="input"
               readonly
