@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <% if (hasData) { %><%- include("parts/head", { pageName: gitHubData.name,
   hasEvent: true, eventName: profileData.event }) %><% } else { %><%-
   include("parts/head", { pageName: "Home", hasEvent: false }) %><% } %>
@@ -10,22 +10,25 @@
         <div class="badge-band"></div>
         <a href="/login" class="btn-login-redirect">Entrar</a>
       </header>
+
       <section class="badge-body">
         <header
           class="readable-badge-avatar <% if (hasData) { %>has-data<% } %>"
         >
           <img
             src="<% if (hasData) { %><%= gitHubData.avatar_url %><% } else { %>https://via.placeholder.com/160x184/e1e1e6/202024<% } %>"
-            alt="<% if (hasData) { %><%= gitHubData.name %><% } else { %>Sua foto de perfil<% } %>"
+            alt="<% if (!hasData) { %>Sua foto de perfil<% } %>"
             class="img-avatar"
           />
         </header>
+
         <section>
           <div class="identification">
             <h1 class="user-name">
               <% if (hasData) { %><%= gitHubData.name %><% } else { %>Seu nome<%
               } %>
             </h1>
+
             <a
               href="<% if (hasData) { %><%= gitHubData.html_url %><% } else { %>#<% } %>"
               target="_blank"
@@ -37,11 +40,13 @@
               } %>
             </a>
           </div>
+
           <p class="user-biography">
             <% if (hasData) { %><%= gitHubData.bio %><% } else { %>Descrição do
-            GitHub<% } %>
+            <span lang="en">GitHub</span><% } %>
           </p>
         </section>
+
         <footer class="badge-footer">
           <ul class="social-links-wrapper">
             <li class="social-link-container">
@@ -58,6 +63,7 @@
                 />
               </a>
             </li>
+
             <li class="social-link-container">
               <a
                 href="<% if (hasData && profileData.links.instagram) { %>https://instagram.com/<%= profileData.links.instagram %>/<% } else { %>#<% } %>"
@@ -72,6 +78,7 @@
                 />
               </a>
             </li>
+
             <li class="social-link-container">
               <a
                 href="<% if (hasData && profileData.links.facebook) { %>https://facebook.com/<%= profileData.links.facebook %><% } else { %>#<% } %>"
@@ -86,6 +93,7 @@
                 />
               </a>
             </li>
+
             <li class="social-link-container">
               <a
                 href="<% if (hasData && profileData.links.twitter) { %>https://twitter.com/<%= profileData.links.twitter %><% } else { %>#<% } %>"

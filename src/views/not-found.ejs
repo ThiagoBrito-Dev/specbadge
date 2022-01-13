@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <%- include("parts/head", { pageName: title, hasEvent: false }) %>
 
   <body class="page">
     <main class="not-found-container">
       <h1 class="not-found-code">404</h1>
-      <img src="/images/lost.png" alt="Pessoa perdida" class="img-lost" />
+      <img
+        src="/images/lost.png"
+        alt="Pessoa perdida. Ilustração."
+        class="img-lost"
+      />
       <p class="not-found-message"><%= message %></p>
     </main>
   </body>

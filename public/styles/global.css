@@ -265,7 +265,7 @@
   }
 
   .card-title {
-    @apply font-semibold
+    @apply font-bold
     text-4xl
     text-center;
   }

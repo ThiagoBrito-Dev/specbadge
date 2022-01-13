@@ -1,14 +1,11 @@
 {
   "name": "specbadge",
   "version": "1.0.0",
-  "description": "A virtual spectator badge",
-  "keywords": [
-    "spectator",
-    "badge"
-  ],
+  "description": "",
+  "keywords": [],
   "main": "./src/server.js",
   "repository": "git@github.com:trybrito/specbadge.git",
-  "author": "Thiago Raniery Ignacio Brito <thiagobritotrs@gmail.com>",
+  "author": "Thiago Raniery Brito <thiagobritotrs@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "connect-mongo": "^4.6.0",

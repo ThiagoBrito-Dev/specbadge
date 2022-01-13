@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <%- include("parts/head", { pageName: "Login", hasEvent: false }) %>
 
   <body class="page has-img-background">
     <main class="login-card">
-      <h1 class="card-title">Login</h1>
+      <h1 class="card-title" lang="en">Login</h1>
+
       <p class="description">
-        Clique no botão abaixo para fazer login com a sua conta do GitHub e
-        ganhar acesso à personalização do seu crachá de espectador.
+        Clique no botão abaixo para fazer <span lang="en">login</span> com a sua
+        conta do <span lang="en">GitHub</span> e ganhar acesso à personalização
+        do seu crachá de espectador.
       </p>
+
       <a
         href="https://github.com/login/oauth/authorize?client_id=<%= clientId %>"
+        rel="noreferrer noopener"
         class="btn-login"
       >
         <img src="/images/github.svg" alt="GitHub" class="btn-icon" />

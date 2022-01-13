@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <% if (hasProfileData) { %><%- include("parts/head", { pageName:
   gitHubData.name, hasEvent: true, eventName: profileData.event}) %><% } else {
   %><%- include("parts/head", { pageName: gitHubData.name, hasEvent: false })
@@ -9,26 +9,22 @@
     <main class="badge">
       <header class="badge-header">
         <div class="badge-band"></div>
-        <button
-          type="button"
-          id="shareBadge"
-          class="btn-share"
-          aria-label="Compartilhar crachá de espectador"
-        >
+
+        <button type="button" id="shareBadge" class="btn-share">
           <img src="/images/share.svg" alt="" class="img-share" />
+          <p class="sr-only">Compartilhar crachá de espectador</p>
         </button>
       </header>
+
       <section class="badge-body">
         <header class="editable-badge-avatar">
-          <img
-            src="<%= gitHubData.avatar_url %>"
-            alt="<%= gitHubData.name %>"
-            class="img-avatar"
-          />
+          <img src="<%= gitHubData.avatar_url %>" alt="" class="img-avatar" />
         </header>
+
         <section>
           <div class="identification">
             <h1 class="user-name"><%= gitHubData.name %></h1>
+
             <a
               href="<%= gitHubData.html_url %>"
               target="_blank"
@@ -39,8 +35,10 @@
               <%= gitHubData.login %>
             </a>
           </div>
+
           <p class="user-biography"><%= gitHubData.bio %></p>
         </section>
+
         <footer class="config-container">
           <ul class="social-links-wrapper">
             <li class="social-link-container">
@@ -57,6 +55,7 @@
                 />
               </a>
             </li>
+
             <li class="social-link-container">
               <a
                 href="<% if (hasProfileData && profileData.links.instagram) { %>https://instagram.com/<%= profileData.links.instagram %>/<% } else { %>#<% } %>"
@@ -71,6 +70,7 @@
                 />
               </a>
             </li>
+
             <li class="social-link-container">
               <a
                 href="<% if (hasProfileData && profileData.links.facebook) { %>https://facebook.com/<%= profileData.links.facebook %><% } else { %>#<% } %>"
@@ -85,6 +85,7 @@
                 />
               </a>
             </li>
+
             <li class="social-link-container">
               <a
                 href="<% if (hasProfileData && profileData.links.twitter) { %>https://twitter.com/<%= profileData.links.twitter %><% } else { %>#<% } %>"
@@ -100,13 +101,10 @@
               </a>
             </li>
           </ul>
-          <button
-            type="button"
-            id="editBadge"
-            class="btn-edit"
-            aria-label="Editar crachá de espectador"
-          >
+
+          <button type="button" id="editBadge" class="btn-edit">
             <img src="/images/edit.svg" alt="" class="img-edit" />
+            <p class="sr-only">Editar crachá de espectador</p>
           </button>
         </footer>
       </section>
@@ -120,12 +118,19 @@
 
             <div class="separator"></div>
 
-            <input type="hidden" name="gitHubId" value="<%= gitHubData.id %>" />
-            <input
-              type="hidden"
-              name="userName"
-              value="<%= gitHubData.login %>"
-            />
+            <div class="input-group">
+              <input
+                type="hidden"
+                name="gitHubId"
+                value="<%= gitHubData.id %>"
+              />
+
+              <input
+                type="hidden"
+                name="userName"
+                value="<%= gitHubData.login %>"
+              />
+            </div>
 
             <div class="input-wrapper">
               <label for="eventName" class="st-label"
@@ -140,6 +145,7 @@
                 placeholder="Nome do evento"
               />
             </div>
+
             <div class="input-wrapper">
               <label for="youtubeLink" class="labels"
                 >Qual é o nome do seu canal do YouTube?</label
@@ -153,6 +159,7 @@
                 placeholder="youtube.com/"
               />
             </div>
+
             <div class="input-wrapper">
               <label for="instagramLink" class="labels"
                 >Qual é o seu usuário do Instagram?</label
@@ -166,6 +173,7 @@
                 placeholder="instagram.com/"
               />
             </div>
+
             <div class="input-wrapper">
               <label for="facebookLink" class="labels"
                 >Qual é o seu perfil do Facebook?</label
@@ -179,6 +187,7 @@
                 placeholder="facebook.com/"
               />
             </div>
+
             <div class="input-wrapper">
               <label for="twitterLink" class="labels"
                 >Qual é o nome do seu usuário do Twitter?</label
@@ -204,6 +213,7 @@
           </fieldset>
         </form>
       </div>
+
       <div id="modalShare" class="modal-share" tabindex="-1">
         <h2 class="share-title">Compartilhar Crachá</h2>
 
@@ -222,15 +232,15 @@
               class="input"
               readonly
             />
-            <button
-              type="button"
-              id="copyButton"
-              class="btn-copy"
-              aria-label="Copiar URL do crachá para a área de transferência"
-            >
+
+            <button type="button" id="copyButton" class="btn-copy">
               <img src="/images/copy.svg" alt="" class="img-copy" />
+              <p class="sr-only">
+                Copiar URL do crachá para a área de transferência
+              </p>
             </button>
           </div>
+
           <button type="button" id="cancelSharing" class="btn-cancel-sharing">
             Cancelar
           </button>
