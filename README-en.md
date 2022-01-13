@@ -74,7 +74,7 @@ $ yarn / npm install
 # Initialize the database.
 $ yarn init-db
 
-# Run the cache layer.
+# Run the cache server.
 $ yarn cache
 
 # Run the application server.
